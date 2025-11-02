@@ -1,0 +1,202 @@
+// Footer Start
+
+.footer-section {
+    background: url('../images/footer/footer-bg.png');
+    @include banner-size;
+    padding-top: 40px;
+}
+
+
+
+
+.footer-cta {
+    padding: 30px 0px;
+    border-bottom: 1px solid #e6e6e6;
+    display: none;
+
+    .foo-single-cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i {
+            color: $clrMain;
+            font-size: 30px;
+        }
+        .cta-text {
+            padding-left: 15px;
+            display: inline-block;
+
+            h4 {
+                color: $clrheading;
+                font-size: 20px;
+                font-weight: 600;
+                margin-bottom: 2px;
+            }
+            a, span {
+                font-family: $fontRoboto;
+                color: $clrPrimary;
+                font-size: 15px;
+                font-weight: $fontRegular;
+            }
+        }
+        @include respond (tabport) {
+            justify-content: left;
+            margin-bottom: 20px;
+        }
+    }
+
+}
+
+.footer-widget {
+    padding: 40px 0px;
+
+    @include respond (phone-sm) {
+        padding: 20px 0px;
+    }
+    .footer-widget-heading {
+        margin-bottom: 30px;
+    }
+    .footer-logo img {
+        width: auto;
+        height: auto;
+        display: block;
+    }
+    p {
+       margin-top: 20px;
+    }
+    .footer-social-icon {
+        margin-top: 10px;
+        h4 {
+            display: block;
+            margin-bottom: 5px;
+        }
+        a{
+            background: $clrMain;
+            color: $clrdefault;
+            font-size: 14px;
+            margin-right: 5px;
+            height: 35px;
+            width: 35px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: $transition;
+
+            &:hover {
+                background: $clrheading;
+            }
+        }
+    }
+    .media {
+        margin-bottom: 20px;
+        img {
+            margin-right: 20px;
+            max-width: 100px;   
+            background: #fff;
+            padding: 5px;
+            border-radius: 5px;  
+        }
+        .content {
+            max-width: 170px;
+
+            a {
+                font-family: $fontRoboto;
+                font-size: 16px;
+                color: $clrPrimary;
+                font-weight: $fontRegular;
+                transition: $transition;
+
+                &:hover {
+                    color: $clrMain;
+                }
+            }
+            span {
+                font-size: 12px;
+                color: $clrPrimary;
+                text-transform: uppercase;
+                margin-top: 5px;
+                display: block;
+            }
+        }
+    }
+    ul {
+        li a {
+            font-family: $fontRoboto;
+            font-size: 16px;
+            color: $clrPrimary;
+            font-weight: $fontRegular;
+            display: inline-block;
+            text-transform: capitalize;
+            margin-bottom: 15px;
+            transition: $transition;
+
+            &:hover {
+                color: $clrMain;
+            }
+        }
+    }
+}
+  
+
+.subscribe-form {
+    position: relative;
+    overflow: hidden;
+    margin-top: 30px;
+    input {
+        width: 100%;
+        padding: 14px 28px;
+        background: transparent;
+        border: 1px solid $clrMain;
+        color: $clrPrimary;
+        outline: none;
+    }
+    button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: $clrMain;
+        padding: 13px 20px;
+        border: 1px solid $clrMain;
+        outline: none;
+
+        i {
+            color: #fff;
+            font-size: 22px;
+            transform: rotate(-6deg);
+        }
+    }
+}
+
+    .copyright-area{
+    //   background: #202020;
+      padding: 25px 0;
+      border-top: 1px solid #f3f3f3;
+
+        .copyright-text p {
+            margin: 0;
+            font-size: 14px;
+            color: #878787;
+
+            a{
+                color: #ff5e14;
+            }
+        }
+        .footer-menu li {
+            display: inline-block;
+            margin-left: 20px;
+
+            a {
+                font-size: 14px;
+                color: #878787;
+            }
+
+            &:hover a{
+                color: #ff5e14;
+              }
+        }
+    }
+    
+    
+    

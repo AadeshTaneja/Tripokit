@@ -1,0 +1,24 @@
+
+
+
+
+/* ==========================
+     PAGE BANNER START
+============================*/
+
+.page-banner {
+    background: url("../images/page-banner/banner.jpg");
+    background-attachment: fixed;
+    @include banner-size;
+    @include page-banner;
+
+    &::after {
+        @include banner-bg;
+        background: rgba(0, 0, 0, .6);
+    }
+}
+
+
+/* ==========================
+     PAGE BANNER END
+============================*/

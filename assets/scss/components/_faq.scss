@@ -1,0 +1,52 @@
+
+  
+#faq {
+    .card {
+        margin-bottom: 30px;
+        border-radius: 5px;
+        border: 1px solid rgba(213, 213, 213, 0.5);
+
+        .card-header {
+            padding: 0;
+
+            .btn-header-link {
+                font-family: $fontJosefin;
+                background: $clrMain;
+                color: $clrdefault;
+                font-size: 18px;
+                display: block;
+                text-align: left;
+                padding: 20px;
+
+                &::after{
+                    content: "\f068";
+                    font-family: 'Font Awesome 5 Free';
+                    font-weight: 900;
+                    float: right;
+                }
+            }
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .collapsed {
+            background: #A541BB;
+            color: #fff;
+        }
+        .collapsing {
+            // background: #FFE472;
+            line-height: 30px;
+        }
+    }
+}
+
+ #faq .card .card-header .btn-header-link.collapsed:after {
+    content: "\f067";
+  }
+  
+  
+   #faq .card .collapse.show {
+    // background: #FFE472;
+    line-height: 30px;
+    color: #222;
+  }

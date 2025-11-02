@@ -1,0 +1,165 @@
+// Team Box Item
+
+.inner-box {
+	position: relative;
+	transition: $transition;
+
+	.image-box {
+		position: relative;
+		padding: 15px;
+		// background-color: rgba(188, 219, 10, 0.15);
+		background: rgba(255, 94, 20, .1);
+		overflow: hidden;
+		border-radius: 5px;
+
+		&::before {
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 0;
+			width: 100%;
+			background-color: $clrMain;
+			content: "";
+			transition: all 700ms ease;
+		}
+		.image {
+			position: relative;
+			margin-bottom: 0;
+			z-index: 1;
+			overflow: hidden;
+			border-radius: 5px;
+
+			&::after {
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 0;
+				width: 100%;
+				// background-color: #ffffff;
+				content: "";
+				transition: all 700ms ease;
+				opacity: 0.4;
+				z-index: 1;
+				top: auto;
+				bottom: 0;
+				// background-color: #1d8ccb;
+			}
+			img {
+				display: block;
+				width: 100%;
+				height: auto;
+			}
+		}
+		@include respond(tabland) {
+			margin-bottom: 30px;
+		}
+	}
+	&:hover {
+		.image-box {
+			&::before {
+				height: 100%;
+			}
+			.image {
+				&:after {
+					height: 100%;
+				}
+			}
+		}
+	}
+	.social-links {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: -160px;
+		padding: 20px;
+		width: 95%;
+		z-index: 9;
+		transition: all 700ms ease;
+		background-color: rgba(255, 94, 20, 0.85);
+		border-radius: 5px;
+
+		@media (min-width: 480px) and (max-width: 767px) {
+			padding: 15px 12px;
+		}
+
+		ul {
+			position: relative;
+			text-align: center;
+			// background-color: rgba(255, 94, 20, 0.85);
+			// background-color: rgba(253, 218, 51, 0.85);
+
+			li {
+				position: relative;
+				display: inline-block;
+				margin: 0 3px;
+
+				@media (min-width: 480px) and (max-width: 767px) {
+					margin: 0 1px;
+				}
+
+				a {
+					position: relative;
+					display: block;
+					color: $clrMain;
+					background: #f0f1f2;
+					font-size: 14px;
+					height: 40px;
+					width: 40px;
+					border-radius: 50%;
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					transition: $transition;
+
+					&:hover {
+						background: $clrheading;
+						color: $clrdefault;
+					}
+					@include respond(phone-sm) {
+						height: 35px;
+						width: 35px;
+					}
+
+					@media (min-width: 480px) and (max-width: 767px) {
+						font-size: 12px;
+						height: 30px;
+						width: 30px;
+					}
+				}
+			}
+		}
+		.caption-box {
+			text-align: center;
+			margin-bottom: 10px;
+			h4 a {
+				color: $clrdefault;
+				transition: $transition;
+
+				@include respond(tabport) {
+					font-size: 19px;
+					line-height: 32px;
+				}
+			}
+			.designation {
+				font-family: $fontRoboto;
+				font-size: 14px;
+				color: $clrdefault;
+				margin-bottom: 15px;
+				font-weight: $fontBold;
+				text-transform: capitalize;
+
+				@include respond(phone) {
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+	&:hover {
+		.social-links {
+			bottom: 8px;
+		}
+	}
+	&:hover {
+        transform: translateY(-5px);
+    }
+}

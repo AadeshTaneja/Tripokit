@@ -1,0 +1,317 @@
+@import "mediaQuery";
+
+@mixin section-title {
+  .section-title {
+		margin-bottom: 50px;
+
+		h2 {
+			color: $clrheading;
+			position: relative;
+			display: inline-block;
+		}
+		h6 {
+			font-family: $fontRoboto;
+			color: $clrSecondary;
+			background: #ff5e140f;
+			font-size: 16px;
+			text-transform: capitalize;
+			margin-bottom: 10px;
+			display: inline-block;
+			padding: 2px 17px;
+			border-radius: 5px;
+		}
+		p {
+			max-width: 520px;
+			margin: 10px auto 0px;
+		}
+		@include respond (phone) {
+			margin-bottom: 30px;
+		}
+	}
+}
+
+@mixin banner-size {
+	position: relative;
+	background-size: cover;
+	background-position: center top;
+	background-repeat: no-repeat;
+	position: relative;
+	z-index: 1;
+}
+
+@mixin banner-bg {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: -1;
+}
+
+@mixin transform {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin page-banner {
+   	padding: 80px 0px;
+	position: relative;
+	
+    .page-banner-title {
+     
+        h2 {
+            font-family: $fontJosefin;
+            color: $clrdefault;
+            font-size: 50px;
+            font-weight: $fontRegular;
+
+			@include respond (tabland) {
+                font-size: 40px;
+            }
+
+			@include respond (phone) {
+                font-size: 35px;
+            }
+        }
+
+      	.link {
+			font-family: $fontJosefin;
+			font-size: 18px;
+			color: $clrheading;
+			font-weight: $fontMid;
+			text-transform: capitalize;
+			background: $clrdefault;
+			padding: 10px 30px;
+			border-radius: 50px;
+			display: inline-block;
+			box-shadow: 0px 2px 22px rgba(93, 93, 93, .13);
+			margin-top: 30px;
+
+			@include respond (tabland) {
+                margin-top: 30px;
+            }
+			@include respond (phone) {
+                font-size: 14px;
+				margin-top: 20px;
+				padding: 8px 18px;
+            }
+
+			a {
+				color: $clrMain;
+				transition: $transition;
+				&:hover {
+					color: $clrMain;
+				}
+			}
+			span {
+				margin: 0px 3px;
+			}
+      	}
+  	}
+	@include respond (tabland) {
+        padding: 80px 0px;
+    }
+    @include respond (phone) {
+        padding: 50px 0px;
+    }
+    @include respond (phone-xm) {
+        padding: 35px 0px;
+    }
+}
+
+@mixin carousel-nav {
+  	.owl-carousel {
+		.owl-dots {
+			display: flex !important;
+			align-items: center;
+			justify-content: center;
+
+			.owl-dot {
+				height: 8px;
+				width: 20px;
+				background: $clrheading;
+				border-radius: 3px;
+				display: none;
+				border: none;
+				outline: none;
+				margin: 50px 5px 0px;
+				transition: $transition;
+				position: relative;
+
+				&.active {
+					width: 30px;
+					background: $clrMain;
+				}
+				@media (max-width: 375px) {
+					margin: 30px 5px 30px 5px;
+				}
+			}
+		}
+		.owl-nav {
+			position: absolute;
+			top: 40%;
+			left: 0;
+			transform: translateY(-40%);
+			width: 100%;
+			display: block;
+			font-size: 10px;
+			opacity: 0;
+			visibility: hidden;
+			transition: $transition;
+
+			button.owl-prev {
+				position: absolute;
+				left: -30px;
+				height: 40px;
+				width: 40px;
+				border-radius: 50px;
+				border: none;
+				outline: none;
+				background: $clrdefault;
+				transition: $transition;
+
+				&:hover {
+					background: $clrMain;
+					color: $clrdefault;
+				}
+			}
+			button.owl-next {
+				position: absolute;
+				right: -30px;
+				height: 40px;
+				width: 40px;
+				border-radius: 50px;
+				border: none;
+				outline: none;
+				background: $clrdefault;
+				transition: $transition;
+				&:hover {
+					background: $clrMain;
+					color: $clrdefault;
+				}
+			}
+		}
+    	&:hover {
+			.owl-nav {
+				opacity: 1;
+				visibility: visible;
+			}
+			button.owl-prev {
+				left: 0px;
+				background: $clrMain;
+				color: $clrdefault;
+
+				&:hover {
+					background: $clrheading;
+				}
+			}
+			button.owl-next {
+				right: 0px;
+				background: $clrMain;
+				color: $clrdefault;
+
+				&:hover {
+					background: $clrheading;
+				}
+			}
+    	}
+  	}
+}
+
+@mixin video-box {
+  .round {
+		position: relative;
+		overflow: hidden;
+
+		&:before {
+		position: absolute;
+		content: "";
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 1;
+		}
+		.video-box {
+			margin: 0;
+			.video-btn {
+				i {
+					position: relative;
+					z-index: 1;
+					top: 0px;
+					left: 0px;
+					font-size: 20px;
+					color: $clrdefault;
+				}
+				@include transform;
+				background-color: $clrMain;
+				border-radius: 50%;
+				color: #1086ff;
+				display: block;
+				text-align: center;
+				line-height: 85px;
+				margin: 0 auto;
+				height: 80px;
+				width: 80px;
+				z-index: 1;
+
+				@include respond(phone-sm) {
+					height: 60px;
+					width: 60px;
+					line-height: 67px;
+				}
+
+				&:before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					animation: beat 1.5s linear infinite;
+					height: 100%;
+					width: 100%;
+					border: 5px solid $clrMain;
+					border-radius: 50%;
+					z-index: -1;
+				}
+				&:after {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					animation: beat 2.2s linear infinite;
+					border: 5px solid $clrdefault;
+					border-radius: 50%;
+					height: 100%;
+					width: 100%;
+				}
+			}
+			span {
+				display: none !important;
+			}
+		}
+
+		@keyframes beat {
+			0% {
+				opacity: 1;
+				-webkit-transform: scale(1);
+				transform: scale(1);
+			}
+			100% {
+				opacity: 0;
+				-webkit-transform: scale(2);
+				transform: scale(2);
+			}
+		}
+  	}
+}

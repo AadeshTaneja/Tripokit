@@ -1,0 +1,138 @@
+// Feature Start
+
+.feature-section {
+    overflow: hidden;
+}
+
+.item-icon-box {
+    background: $clrdefault;
+    border-radius: 5px;
+    padding: 40px 30px;
+    box-shadow: 0px 2px 22px rgba(93, 93, 93, 0.13);
+    transition: $transition;
+
+    @include respond (tabport) {
+        margin-bottom: 30px;
+    }
+
+    @include respond (phone-sm) {
+        padding: 40px 20px;
+    }
+
+    .item-image {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        background: $clrdefault;
+        box-shadow: 0px 2px 22px rgba(93, 93, 93, 0.13);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0px auto 15px;
+        position: relative;
+        z-index: 1;
+        img {
+            width: 40px;
+            height: auto;
+            display: block;
+        }
+    }
+
+    h4 {
+        font-size: 24px;
+        
+        a {
+            color: $clrheading;
+            display: inline-block;
+        }
+    }
+    p {
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+    .cta-btn {
+        display: inline-block;
+
+        .gs-btn {
+            font-size: 13px;
+            font-weight: $fontBold;
+            margin-top: 15px;
+            padding: 10px 25px;
+            text-transform: uppercase;
+
+            &:hover {
+                background: $clrdefault;
+                color: $clrMain;
+            }
+        }
+    }
+    &:hover {
+        background: $clrMain;
+        h4 a, p {
+            color: $clrdefault;
+        }
+        .cta-btn a{
+            color: $clrdefault;
+            border-color: $clrdefault;
+        }
+    }
+
+    &.v2 {
+        padding: 30px 20px;
+
+        h4 {
+            font-size: 22px;
+        }
+
+        @include respond (tabland) {
+            margin-bottom: 30px;
+        }
+    }
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+.process-line {
+    position: absolute;
+    top: auto;
+    .process-content {
+        position: relative;
+        svg {
+            position: relative;
+            
+        }
+        .border-icon {
+            color: #ddd;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            .icon-1 {
+                top: -5px;
+                left: -6px;
+                position: absolute;
+                transform: rotate(40deg);
+            }
+            .icon-2 {
+                position: absolute;
+                top: -4px;
+                left: auto;
+                right: 0;
+                transform: rotate(-50deg);
+            }
+        
+            @include respond (tabland) {
+                display: none;
+            }
+        }
+    }
+    @include respond (tabland) {
+        display: none;
+    }
+}
+
+
+
+
+// Feature End

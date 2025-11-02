@@ -1,0 +1,108 @@
+
+/* ==========================
+    POPULAR DESTINATION START
+============================*/
+
+
+.destination-item-content {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    transition: $transition;
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+        position: relative;
+        transform: scale(1);
+        transition: $transition;
+    }
+    .item-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.3);
+
+        .content {
+            position: absolute;
+            bottom: -30px;
+            left: 30px;
+            transition: $transition;
+            h4 a {
+                font-size: 25px;
+                color: $clrdefault;
+                margin-bottom: 5px;
+                display: inline-block;
+            }
+
+            .content-meta {
+                font-size: 14px;
+                color: $clrdefault;
+                .meta {
+                    margin-right: 20px;
+                }
+            }
+            .review {
+                margin-top: 10px;
+                color: $clrdefault;
+                i {
+                    font-size: 14px;
+                    color: #ffb609;
+                }
+                span {
+                    padding-left: 5px;
+                }
+            }
+            .content-wrapper {
+                opacity: 0;
+                visibility: hidden;
+                transition: $transition;
+            }
+        }
+    }
+    &:hover {
+        img {
+            transform: scale(1.1);
+        }
+        .content {
+            // bottom: 30px;
+            transform: translateY(-60px);
+        }
+        .content-wrapper {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+    }
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.destination-item-content {
+    .link-box {
+        position: relative;
+        background: #f5f6f6;
+        padding: 48px 0 44px;
+        border-radius: 50%;
+        width: 100%;
+
+        h4 {
+            line-height: 25px;
+            margin-bottom: 20px;
+        }
+        .gs-btn {
+            background-color: $clrMain;
+            color: $clrdefault;
+        }
+    }
+}
+
+
+/* ==========================
+    POPULAR DESTINATION END
+============================*/

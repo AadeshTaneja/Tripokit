@@ -1,0 +1,268 @@
+/* ==========================
+   Top PACKAGE SECTION START
+============================*/
+
+.top-package {
+    overflow: hidden;
+    @include carousel-nav;
+}
+
+
+.top-package-block {
+    position: relative;
+    box-shadow: 0px 2px 22px rgba(93, 93, 93, 0.13);
+    background: $clrdefault;
+    padding: 10px;
+    border-radius: 10px;
+    transition: $transition;
+    .item-thumb {
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            position: relative;
+            border-radius: 5px 5px 0px 0px;
+            transition: $transition;
+        }
+        .ribbon {
+            background-color: $clrMain;
+            border-radius: 0;
+            color: $clrdefault;
+            display: block;
+            font-size: 17px;
+            font-weight: $fontRegular;
+            position: absolute;
+            padding: 7px 15px;
+            top: 20px;
+            left: -15px;
+            box-shadow: 0 1px 0px rgba(0, 0, 0, 0.07);
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: auto;
+                left: 4px;
+                right: auto;
+                bottom: -7px;
+                background: $clrMain;
+                transform: rotate(35deg);
+                height: 20px;
+                width: 20px;
+                z-index: -1;
+            }
+        }
+    }
+    .item-content {
+        padding: 15px;
+        position: relative;
+        // border: 1px solid #efefef;
+
+        h4 a {
+            color: $clrheading;
+            font-size: 20px;
+            display: block;
+            text-transform: capitalize;
+            padding-bottom: 5px;
+            border-radius: 0px 0px 5px 5px;
+            transition: $transition;
+
+            &:hover {
+                color: $clrMain;
+            }
+        }
+        p {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 26px;
+            // margin-bottom: 20px;
+        }
+        .enroll {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 25px;
+            .ratings {
+                .days {
+                    font-family: $fontRoboto;
+                    font-size: 14px;
+                    color: $clrdefault;
+                    background: $clrMain;
+                    padding: 4px 10px;
+                    border-radius: 3px;
+                    margin-top: 10px;
+                    font-weight: $fontRegular;
+                    display: block;
+                }
+                .total-place {
+                    font-family: $fontRoboto;
+                    font-size: 15px;
+                    color: $clrPrimary;
+                    font-weight: $fontRegular;
+                    display: block;
+                }
+                .enrolled {
+                    font-family: $fontRoboto;
+                    font-size: 14px;
+                    color: $clrPrimary;
+                    font-weight: $fontRegular;
+                }
+
+                a {
+                    font-size: 14px;
+                    display: inline-block;
+                    color: #ffb609;
+                }
+            }
+        }
+        .item-btn {
+            margin-top: 0;
+            .gs-btn {
+                width: auto;
+                font-size: 13px;
+                text-transform: uppercase;
+
+                @include respond (phone-xm) {
+                    padding: 8px 13px;
+                }
+            }
+        }
+        @include respond (phone-xm) {
+            padding: 10px;
+        }
+    }
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.review {
+    a {
+        font-size: 14px;
+        display: inline-block;
+        color: #ffb609;
+    }
+}
+
+
+
+/* ==========================
+    POPULAR PACKAGE START
+============================*/
+
+
+.popular-package {
+    overflow: hidden;
+    @include carousel-nav;
+    .owl-carousel {
+        &:hover {
+            button.owl-prev {
+                left: -20px;
+            }
+            button.owl-next {
+                right: -20px;
+            }
+        }
+    }
+}
+
+.popular-pack-block {
+    // box-shadow: 0 0 20px rgba(0, 0, 0, 0.03);
+    background: $clrdefault;
+    padding: 10px;
+    box-shadow: 0px 2px 22px rgba(93, 93, 93, 0.13);
+    border-radius: 5px;
+    border-bottom: 3px solid $clrMain;
+    transition: $transition;
+
+    .item-image {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            position: relative;
+            transform: scale(1.1);
+            transition: $transition;
+        }
+        .ribbon {
+            background-color: $clrMain;
+            border-radius: 0;
+            color: $clrdefault;
+            display: block;
+            font-size: 14px;
+            font-weight: $fontRegular;
+            position: absolute;
+            padding: 5px 20px;
+            bottom: 0px;
+            right: 0px;
+            border-radius: 50px 0px 0px 0px;
+            box-shadow: 0 1px 0px rgba(0, 0, 0, 0.07);
+        }
+    }
+    .item-content {
+        padding: 15px;
+        position: relative;
+        // border: 1px solid #efefef;
+
+        h4 a {
+            color: $clrheading;
+            font-size: 20px;
+            display: block;
+            text-transform: capitalize;
+            padding-bottom: 5px;
+            transition: $transition;
+
+            &:hover {
+                color: $clrMain;
+            }
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        .location {
+            font-family: $fontRoboto;
+            font-size: 15px;
+            color: $clrPrimary;
+            font-weight: $fontRegular;
+            display: block;
+
+            span {
+                color: $clrPrimary;
+            }
+        }
+        .days {
+            span {
+                font-family: $fontRoboto;
+                font-size: 14px;
+                color: $clrdefault;
+                background: $clrMain;
+                padding: 4px 10px;
+                border-radius: 3px;
+                margin-top: 10px;
+                font-weight: $fontRegular;
+                display: block;
+            }
+        }
+        .review {
+            margin-top: 10px;
+            color: $clrPrimary;
+            i {
+                font-size: 14px;
+                color: #ffb609;
+            }
+            span {
+                padding-left: 5px;
+            }
+        }
+    }
+    &:hover {
+        transform: translateY(-5px);
+        img {
+            transform: scale(1);
+        }
+    }
+}
+

@@ -1,0 +1,326 @@
+
+/* ==========================
+    BLOG PAGE START
+============================*/
+
+.blog-page-section {
+    padding: 100px 0px;
+
+    .blog-item .image img {
+        height: 350px;
+    }
+}
+
+.page-side-bar {
+    .search-bars {
+        form {
+            font-family: $fontRoboto;
+            color: $clrPrimary;
+            font-size: 15px;
+            font-weight: $fontRegular;
+            position: relative;
+            top: 0;
+            background: #f8f8f8;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+
+            .search {
+                position: relative;
+                // background: #eff3f9 !important;
+                background: $clrdefault;
+                color: $clrPrimary;
+                border: none;
+                padding: 18px 30px 18px 20px;
+                width: 100%;
+                // margin-bottom: 30px;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+            button {
+                position: absolute;
+                top: 50px;
+                font-weight: $fontBold;
+                right: 40px;
+                color: $clrPrimary;
+                cursor: pointer;
+                border: none;
+                outline: none;
+                background: transparent;
+            }
+        }
+    }
+    .recent {
+        // padding: 40px 50px 15px 50px;
+        padding: 30px;
+        background: #f8f8f8;
+        margin-bottom: 30px;
+        border-radius: 10px;
+
+        @media (max-width: 479px) {
+            padding: 30px  30px 0px;
+        }
+        .post-title {
+            padding-top: 0;
+            padding-bottom: 25px;
+
+            @media (max-width: 479px) {
+               padding-top: 0;
+            }
+        }
+        .post-content {
+            padding-bottom: 30px;
+
+            img {
+                width: auto;
+                height: auto;
+                display: block;
+                cursor: pointer;
+                border-radius: 50%;
+                margin-right: 20px;
+            }
+
+            h6 a {
+                font-family: $fontJosefin;
+                font-size: 16px;
+                color: $clrheading;
+                transition: $transition;
+            }
+            .date {
+                a {
+                    font-family: $fontRoboto;
+                    font-size: 14px;
+                    display: block;
+                    margin-top: 5px;
+                    font-weight: $fontRegular;
+                    color: $clrPrimary;
+                }
+            }
+            &:hover h6 a {
+                color: $clrMain;
+            }
+        }
+    }
+    .category {
+        padding: 30px;
+        background: #f8f8f8;
+        border-radius: 10px;
+        .post-title {
+            padding-top: 0px;
+            padding-bottom: 20px;
+            h4  {
+                color: $clrheading;
+            }
+        }
+        .cata-content {
+            li {
+                display: flex;
+                align-items: baseline;
+                // justify-content: space-between;
+                // border-bottom: 1px solid #e7e7e7;
+
+                a {
+                    font-family: $fontRoboto;
+                    font-weight: $fontRegular;
+                    font-size: 16px;
+                    color: $clrPrimary;
+                    padding: 15px 0px;
+                    display: block;
+                    transition: $transition;
+
+                    &:hover {
+                        color: $clrMain;
+                        margin-left: 5px;
+                    }
+                    i {
+                        margin-right: 5px;
+                        font-size: 16px;
+                    }
+                }
+                span {
+                    font-family: $fontRoboto;
+                    font-weight: $fontRegular;
+                    font-size: 16px;
+                    color: $clrPrimary;
+                }
+            }
+        }
+    }
+    .ads-pic {
+        img {
+            display: block;
+            width: auto;
+            height: auto;
+        }
+    }
+    .popular-tag {
+        padding: 30px;
+        background: #f8f8f8;
+        border-radius: 10px;
+        margin-top: 30px;
+        .post-title {
+            padding-top: 0px;
+            padding-bottom: 25px;
+        }
+        .link-up {
+            ul li {
+                display: inline-block;
+                margin-right: 8px;
+                margin-bottom: 8px;
+
+                a {
+                    background-color: #eff3f9;
+                    font-family: $fontRoboto;
+                    font-size: 14px;
+                    color: $clrPrimary;
+                    font-weight: $fontRegular;
+                    padding: 10px 19px;
+                    border-radius: 5px;
+                    display: block;
+                    transition: $transition;
+
+                    &:hover {
+                        text-decoration: none;
+                        background: $clrMain;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    .news-form {
+        padding-top: 15px;
+        .post-title {
+            padding-top: 0;
+        }
+        .search-bar {
+            display: none;
+
+            .search {
+                font-family: $fontRoboto;
+                color: $clrPrimary;
+                font-size: 15px;
+                font-weight: $fontRegular;
+                display: block;
+                padding: 18px 20px;
+                width: 100%;
+                margin-bottom: 20px;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+    .sidebar-banner {
+        position: relative;
+        box-shadow: 0px 0px 64px rgba(32, 29, 29, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+
+        .sidebar-banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(48, 79, 71, 0.85);
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            padding: 25px;
+
+            h2 {
+                // font-size: 40px;
+                line-height: 40px;
+                color: #FFFFFF;
+                font-weight: 700;
+                margin-bottom: 50px;
+            }
+        }
+        .sidebar-banner-btn {
+            a {
+                border-radius: 10px;
+                font-size: 14px;
+
+                &:hover {
+                    color: $clrdefault;
+                }
+            }
+        }
+    }
+}
+
+
+
+/* ==========================
+    BLOG PAGE END
+============================*/
+
+.avatar {
+    img {
+        height: 100px;
+        width: 100px;
+        border-radius: 50px;
+    }
+}
+
+
+
+/* ==========================
+    PAGINATION START
+============================*/
+
+.pagination {
+    padding-top: 15px;
+
+    @media (max-width: 767px) {
+       padding-top: 40px;
+    }
+    ul {
+        margin-bottom: 0;
+        a {
+            font-family: $fontRoboto;
+            font-size: 16px;
+            background: $clrheading;
+            color: $clrdefault;
+            font-weight: $fontMid;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            line-height: 48px;
+            margin: 30px 10px 0px 10px;
+            display: inline-block;
+            text-align: center;
+            transition: $transition;
+
+            @media (max-width: 479px) {
+                margin: 30px 5px 0px 5px;
+            }
+
+            i {
+                font-size: 14px;
+                height: 40px;
+                width: 40px;
+                line-height: 38px;
+                color: $clrdefault;
+                transition: $transition;
+
+                &:hover {
+                    color: $clrdefault;
+                }
+            }
+
+            &.active,
+            &:hover {
+                background: $clrMain;
+                color: $clrdefault;
+            }
+        }
+    }
+}
+
+
+

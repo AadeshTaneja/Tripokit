@@ -1,0 +1,135 @@
+    /* ==========================
+      APPOINTMENT AREA START
+   ============================*/ 
+
+.appointment-area {
+    padding-bottom: 0;
+    .appoinment-box {
+        position: relative;
+        border-radius: 0;
+        margin-top: -145px;
+        z-index: 1;
+
+        @include respond (phone) {
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 0;
+
+            @include respond (tabland) {
+                margin: 7.5px 0px;
+            }
+        }
+        .gs-btn {
+            border-radius: 0;
+            padding: 12px 30px;
+        }
+    } 
+}
+
+.appoinment-box {
+    background: $clrdefault;
+    padding: 50px 30px;
+    border-radius: 5px;
+    border: 1px solid #e3e6ea99;
+    box-shadow: 0 8px 15px rgba(142, 141, 141, 0.13);
+    
+    .form-group {
+         width: 100%;
+        //  margin-bottom: 30px;
+         display: inline-block;
+         
+
+        .form-control {
+            font-family: $fontRoboto;
+            font-size: 14px;
+            color: $clrPrimary !important;
+            font-weight: $fontRegular;
+            padding: 13px 25px;
+            outline: none;
+            width: 100%;
+            height: auto;
+            border-radius: 0px;
+            border: 1px solid #e1e1e1;
+
+            &:focus {
+                color: transparent;
+                background: transparent;
+                box-shadow: none;
+                border-color: $clrMain;
+            }
+        }
+        .nice-select {
+            width: 100%;
+            padding: 3.5px 25px;
+            height: auto;
+            border-radius: 0px;
+
+            &:focus {
+                border-color: $clrMain;
+            }
+
+            span {
+                color: $clrPrimary;
+                font-family: $fontRoboto;
+                 font-size: 14px;
+                 font-weight: $fontRegular;
+            }
+            .option {
+                color: $clrheading;
+                transition: $transition;
+
+                &:active,
+                &:hover {
+                    background: $clrMain;
+                    color: $clrdefault;
+                }
+
+                &.selected {
+                    font-weight: $fontRegular;
+                    color: $clrheading;
+                }
+                &.focus {
+                    background: $clrMain;
+                    font-weight: $fontRegular;
+                    border-color: $clrMain;
+                    // color: $clrdefault;
+
+                    &:hover {
+                     color: $clrdefault;
+                    }
+                }
+            }
+        }
+        .nice-select.open .list {
+            border-radius: 0;
+            width: 100%;
+            overflow-y: hidden !important;
+        }
+    }
+    .submit {
+        border-radius: 30px;
+    }
+}
+
+
+// @media (max-width: 991px) {
+//     .appointment-section {
+//         .appointment-image {
+//             padding-bottom: 20px;
+//         }
+//     }
+// }
+
+
+// @media (max-width: 480px) {
+//     .appoinment-box {
+//         padding: 50px 15px;
+//     }
+// }
+
+
+
+  /* ==========================
+      APPOINTMENT AREA END
+   ============================*/ 

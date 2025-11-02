@@ -1,0 +1,303 @@
+// Header Start
+.header {
+    background: $clrdefault;
+    width: 100%;
+    height: 80px;
+    position: relative;
+    transition: $transition;
+    z-index: 9999;
+    .main-nav {
+        background: $clrdefault;
+        padding: 0;
+        .navbar {
+            line-height: 80px;
+            padding: 0;
+
+            .navbar-nav {
+                .nav-item {
+                    padding: 0;
+                    a {
+                        font-family: $fontJosefin;
+                        font-size: 16px;
+                        font-weight: $fontMid;
+                        color: $clrheading;
+                        display: inline-block;
+                        margin-right: 35px;
+                        margin-left: 0;
+                        text-transform: capitalize;
+                        transition: $transition;
+                        position: relative;
+
+                        i {
+                            position: relative;
+                            top: 3px;
+                        }
+    
+                        &:hover {
+                            color: $clrMain;
+                        }
+                        &.active {
+                            color: $clrMain;
+                        } 
+                    }
+                    &:last-child a{
+                        margin-right: 0;
+                    }
+                    .dropdown-menu {
+                        background: $clrdefault;
+                        width: 200px;
+                        top: 100%;
+                        left: 0;
+                        padding: 0;
+                        opacity: 0;
+                        border-radius: 0;
+                        visibility: hidden;
+                        border: none;
+                        border-bottom: 2px solid $clrMain;
+                        box-shadow: 0px 0px 20px rgba(214, 214, 214, 0.5);
+                        transform-origin: top;
+                        transform: rotateX(-90deg);
+                        transition: $transition;
+    
+                        li {
+                            width: 100%;
+                            border-bottom: 1px solid rgba(214, 214, 214, 0.5);
+                            line-height: 30px;
+                            a {
+                                color: $clrheading;
+                                transition: $transition;
+    
+                                &.active,
+                                &:hover {
+                                    color: $clrMain;
+                                }
+                            }
+                            &:last-of-type {
+                                border: none;
+                            }
+                        }
+                    }
+                    &:hover .dropdown-menu {
+                        opacity: 1;
+                        visibility: visible;
+                        transform: rotateX(0);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mean-container {
+    .mean-bar {
+        height: 80px;
+    }
+    .mean-nav {
+        margin-top: 80px;
+    }
+}
+
+
+
+@media (max-width: 991px) {
+    .mean-container {
+        .mean-bar {
+            background: $clrdefault;
+        }
+        .mean-nav {
+            box-shadow: 0px 3px 5px #aaaaaa85;
+
+            ul li a.mean-expand {
+                top: -5px !important;
+            }
+            ul li a {
+                font-weight: $fontSemi;
+                font-size: 15px;
+                color: $clrheading !important;
+            }
+            ul li .active {
+                color: $clrMain !important;
+            }
+        }
+    }
+    .mobile-nav {
+        nav .navbar-nav {
+            height: 280px;
+        }
+        .cta-btn {
+            position: absolute;
+            z-index: 999;
+            right: 45px;
+            top: 15px;
+        }
+        .logo {
+            top: 24px;
+        }
+    }
+    .mean-container a.meanmenu-reveal {
+        width: 30px;
+        color: $clrBlack;
+        padding: 27px 15px 0 0;
+        font-size: 25px !important;
+
+        span {
+            background: $clrBlack;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 8px;
+                right: 0;
+                height: 4px;
+                width: 100%;
+                background: $clrBlack;
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                top: 16px;
+                right: 0;
+                height: 4px;
+                width: 100%;
+                background: $clrBlack;
+            }
+        }
+    }
+}
+
+
+.header-btn {
+    .header-bttn {
+        .gs-btn {
+            font-size: 15px;
+            padding: 0;
+            height: 45px;
+            width: 125px;
+            border-radius: 0;
+            background: $clrMain;
+            color: $clrdefault;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                color: $clrheading;
+                background: transparent;
+            }
+        }
+    }
+}
+
+.search-bar {
+    position: relative;
+    a {
+        font-size: 16px;
+        color: $clrheading;
+        background: #fbf1f2;
+        height: 45px;
+        width: 45px;
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: $transition;
+
+        &:hover {
+            background: $clrMain;
+            color: $clrdefault;
+        }
+
+        @include respond (tabland) {
+            position: absolute;
+            top: 0px;
+            left: auto;
+            right: 0;
+            z-index: 999;
+        }
+    }
+    .search-overlay {
+        display: none;
+    }
+    .search-popup {
+        position: absolute;
+        top: 30px;
+        width: 300px;
+        right: calc(100% - 16px);
+        margin-top: 32px;
+        background: #fff;
+        padding: 15px;
+        z-index: 999;
+        box-shadow: 0 10px 15px rgba(51, 47, 59, 0.1);
+
+        @include respond (tabland) {
+            right: 0;
+            
+        }
+        @include respond (phone-xm) {
+            width: 230px;
+            right: 0;
+            
+        }
+        .search-form {
+            position: relative;
+            z-index: 999;
+
+            .search-input {
+                display: block;
+                width: 100%;
+                height: 50px;
+                line-height: initial;
+                border: 1px solid #eeeeee;
+                color: #1a1a1a;
+                outline: 0;
+                padding-top: 4px;
+                padding-left: 10px;
+                padding-right: 75px;
+                transition: $transition;
+
+                &:focus {
+                    border-color: $clrMain;
+                  }
+            }
+            .btn{
+                background: $clrMain;
+                color: $clrdefault;
+                position: absolute;
+                right: 7px;
+                top: 50%;
+                border-radius: 3px;
+                padding: 8px 15px;
+                width: 60px;
+                height: 40px;
+                transform: translateY(-50%);
+               transition: $transition;
+            }
+        }
+    }
+}
+
+
+.sticky {
+    background: #ffffff;
+    padding: 0px;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    animation: sticky 0.5s;
+    -webkit-animation: sticky 0.5s;
+    box-shadow: 0px 1px 3px #e9e9e9;
+}
+
+@keyframes sticky {
+    0% {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+    100% {
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
+    }
+}
+

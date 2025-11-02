@@ -1,0 +1,163 @@
+
+
+.banner-section {
+    background: #f5f5f5;
+    padding: 100px 0px;
+
+    @include respond (phone) {
+        padding: 80px 0px;
+    }
+    @include respond (phone-sm) {
+        padding: 60px 0px;
+    }
+
+    .banner-content {
+        p {
+            margin-top: 15px;
+            margin-bottom: 40px;
+        }
+    }
+    .banner-image {
+        @include respond (tabport) {
+            margin-top: 30px;
+        }
+    }
+    &.v2 {
+        padding-top: 13%;
+        padding-bottom: 0;
+        background: transparent;
+
+        .banner-content {
+            max-width: 700px;
+            margin: 0 auto;
+
+            h1 {
+                font-size: 55px;
+                line-height: 65px;
+            }
+
+            p {
+                max-width: 550px;
+                margin: 15px auto 40px;
+            }
+        }
+    }
+}
+
+
+.banner-btn {
+    display: flex;
+    align-items: center;
+
+    .gs-btn {
+        @include respond (phone-xm) {
+            padding: 10px 20px;
+            font-size: 15px;
+        }
+    }
+    
+
+    .video-btn {
+        margin-left: 20px;
+        a {
+            color: $clrheading;
+            font-size: 17px;
+            transition: $transition;
+
+            @include respond (phone-xm) {
+                font-size: 15px;
+            }
+            
+            i {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 13px;
+                height: 45px;
+                width: 45px;
+                border-radius: 50%;
+                margin-right: 10px;
+                color: $clrMain;
+                background: $clrdefault;
+                box-shadow: 0px 0px 20px rgba(214, 214, 214, 0.5);
+                transition: $transition;
+            }
+            &:hover {
+                color: $clrMain;
+
+                i {
+                    background: $clrMain;
+                    color: $clrdefault;
+                }
+            }
+        }
+    }
+}
+
+
+// END
+
+.banner-bottom-bg {
+    padding: 240px 0px 0px;
+    position: relative;
+    overflow-x: hidden;
+
+    .banner-bg {
+        position: absolute;
+        bottom: 0;
+        background: url('../images/banner/banner_bg.jpg') no-repeat scroll center 0;
+        width: 100%;
+        height: 266px;
+
+        .banner-bg-one {
+            background: url('../images/banner/volks.gif') no-repeat center center;
+            width: 330px;
+            height: 105px;
+            background-size:100%;
+            position: absolute;
+            bottom: 0;
+            left: 30%;
+            animation: car 22s linear infinite;
+        }
+        .banner-bg-two {
+        
+            background: url('../images/banner/cyclist.gif') no-repeat center center;
+            width: 88px;
+            height: 100px;
+            background-size:100%;
+            bottom: 0;
+            left: 38%;
+            position: absolute;
+            animation: car 30s linear infinite;
+        }
+    }
+}
+
+
+@-moz-keyframes car {
+    0% {
+      left: -25%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+  
+  @-webkit-keyframes car {
+    0% {
+      left: -25%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+  
+  @keyframes car {
+    0% {
+      left: -25%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+  

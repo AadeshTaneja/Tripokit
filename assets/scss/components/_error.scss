@@ -1,0 +1,64 @@
+// Error Start
+
+.error-bg {
+    img {
+        width: auto;
+        height: auto;
+        display: block;
+        margin: 0 auto 30px;
+
+        @include respond (tabland) {
+            width: 100%;
+        }
+    }
+}
+
+.page-content {
+    h2 {
+        font-size: 45px;
+        line-height: 60px;
+        color: $clrheading;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        @include respond (phone) {
+            font-size: 30px;
+            line-height: 40px;
+        }
+    }
+    p {
+        margin: 20px 0px 30px;
+    }
+    a {
+        text-transform: capitalize;
+        transition: $transition;
+    }
+}
+
+
+// .page-content a {
+//     text-transform: uppercase;
+//     color: #fff;
+//     font-weight: 500;
+//     padding: 15px 55px;
+//     background: #ef1414;
+//     border-radius: 3px;
+//     text-decoration: none;
+//     transition: .5s;
+// }
+// .page-content a i {
+//     font-size: 13px;
+//     color: #ffffff;
+//     margin-right: 10px;
+//     transition: .5s;
+// }
+// .page-content a:hover {
+//    color: #000C38;
+
+// }
+// .page-content a i:hover {
+//     color: #000C38;
+// }
+// .page-content a:hover i {
+//     color: #000C38;
+// }

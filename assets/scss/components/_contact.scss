@@ -1,0 +1,174 @@
+
+
+/* ==========================
+    CONTACT FORM START GLOBAl
+============================ */
+
+.form {
+    .text,
+    .subject {
+        font-family: $fontRoboto;
+        font-size: 15px;
+        color: $fontRoboto;
+        font-weight: $fontRegular;
+        border: 1px solid #e0e3e7;
+        height: 200px;
+        border-radius: 5px;
+        width: 100%;
+        padding: 20px;
+        outline: none;
+        margin-bottom: 30px;
+    }
+    .text {
+        padding: 18px 20px;
+        height: auto;
+        outline: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .form {
+        margin-bottom: 50px;
+    }
+}
+
+/* ==========================
+    CONTACT FORM END
+============================ */
+
+/* ==========================
+    CONTACT PAGE START
+============================ */
+
+.contact-page {
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+
+.contact-detail {
+    .contact-content {
+        background: $clrdefault;
+        display: flex;
+        align-items: center;
+        padding: 30px;
+        margin-bottom: 25px;
+        transition: $transition;
+        box-shadow: 0px 0px 20px rgba(80, 80, 80, 0.17);
+
+        .icon {
+            i {
+                font-size: 20px;
+                height: 50px;
+                width: 50px;
+                background: $clrMain;
+                color: $clrdefault;
+                text-align: center;
+                line-height: 50px;
+                border: 1px solid $clrMain;
+                border-radius: 50px;
+            }
+        }
+        .content {
+            padding-left: 20px;
+            h5 {
+                font-weight: $fontRegular;
+                color: $clrPrimary;
+                font-size: 14px;
+            }
+            a {
+                font-family: $fontJosefin;
+                font-size: 16px;
+                color: $clrheading;
+                font-weight: $fontMid;
+                transition: $transition;
+
+                &:hover {
+                    color: $clrMain;
+                }
+            }
+        }
+        &:hover {
+            background: $clrheading;
+            color: $clrdefault;
+
+            h5, a {
+                color: $clrdefault;
+            }
+        }
+
+    }
+}
+
+/* ==========================
+    MAP START
+============================ */
+
+.location-section {
+    padding: 0;
+    padding-top: 80px;
+
+    #map {
+        iframe {
+            width: 100%;
+            height: 400px;
+        }
+    }
+    .container-fluid {
+        .col-12 {
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+        }
+    }
+}
+
+/* ==========================
+    MAP END
+============================ */
+
+// CONTACT SIDE BAR
+.single-border {
+    padding-bottom: 60px;
+
+    h2 {
+        margin-top: 15px;
+    }
+}
+.contact-inform { 
+    .address {
+        padding-bottom: 45px;
+    }
+     i {
+        font-size: 40px;
+        color: $clrMain;
+        border-radius: 50px;
+        text-align: center;
+
+    }
+    .information {
+
+        font-family: $fontJosefin;
+        font-size: 16px;
+        font-weight: $fontRegular;
+        color: $clrPrimary;
+        margin-left: 30px;
+      
+        a {
+            font-family: $fontJosefin;
+            font-size: 16px;
+            color: $clrPrimary;
+            font-weight: $fontRegular;
+            transition: $transition;
+            &:hover {
+                color: $clrMain;
+            } 
+        }
+    }   
+}
+
+
+
+/* ==========================
+    CONTACT PAGE END
+============================ */
+
+ 

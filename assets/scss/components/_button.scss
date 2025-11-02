@@ -1,0 +1,44 @@
+
+// Button
+
+.gs-btn {
+    font-family: $fontJosefin;
+    font-size: 17px;
+    color: $clrdefault;
+    font-weight: $fontMid;
+    display: inline-block;
+    padding: 10px 25px;
+    transition: $transition;
+
+    i {
+        font-size: 16px;
+        display: inline-block;
+        margin-left: 8px;
+        // transition: $transition;
+    }
+
+    &-primary {
+        color: $clrheading;
+        background: transparent;
+        // border-radius: 30px;
+        border-radius: 5px;
+        border: 1px solid $clrMain;
+
+        &:hover {
+            background: $clrMain;
+            color: $clrdefault;
+        }
+    }
+    &-filled {
+        color: $clrdefault;
+        background: $clrMain;
+        border-radius: 5px;
+        text-transform: uppercase;
+        border: 1px solid $clrMain;
+
+        &:hover {
+            color: $clrMain;
+            background: transparent;
+        }
+    }
+}

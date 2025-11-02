@@ -1,0 +1,78 @@
+// About Start
+
+.item-title {
+    p {
+        margin-top: 20px;
+        margin-bottom: 30px;
+        max-width: 515px;
+    }
+}
+
+.item-icon-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+    i {
+        color: $clrMain;
+        font-size: 17px;
+    }
+    img {
+        width: 25px;
+    }
+    a {
+        font-family: $fontRoboto;
+        font-size: 16px;
+        color: $clrheading;
+        font-weight: $fontBold;
+        margin-left: 8px;
+        transition: $transition;
+
+        &:hover {
+            color: $clrMain;
+        }
+    }
+}
+
+.item-btn {
+    margin-top: 30px;
+}
+
+
+.about-img {
+    @include video-box;
+    .round {
+        border-radius: 10px;
+        // z-index: -1;
+
+        &::before {
+            background: transparent;
+        }
+    }
+    img {
+        width: auto;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        background: $clrdefault;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0px 2px 22px rgba(93, 93, 93, 0.13);
+
+        @include respond (phone) {
+            width: 100%;
+        }
+    }
+    @include respond (tabland) {
+        margin-bottom: 30px;
+    }
+}
+
+.about-section {
+    .col-6 {
+        @include respond (phone-xm) {
+            max-width: 100%;
+            flex-basis: 100%;
+        }
+    }
+}

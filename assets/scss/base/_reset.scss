@@ -1,0 +1,339 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  background: transparent;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+}
+a {
+	text-decoration: none!important;
+	transition: $transition;
+	&:hover, &:focus {
+		text-decoration: none;
+		outline: 0px;
+	}
+	
+}
+ h1, h2, h3, h4, h5, h6 {
+	font-family: $fontJosefin;
+	margin: 0;
+    color: $clrheading;
+}
+
+h1 {
+    // font-size: 45px;
+    // font-weight: $fontBold;
+    font-size: 50px;
+    line-height: 55px;
+    font-weight: $fontBold;
+
+    @include respond (phone-sm) {
+        font-size: 35px !important;
+        line-height: 45px !important;
+    }
+    @include respond (phone-xm) {
+        font-size: 29px !important;
+        line-height: 35px !important;
+    }
+}
+h2 {
+    font-size: 35px;
+    font-weight: $fontBold;
+    line-height: 36px;
+
+    @include respond (phone-sm) {
+        font-size: 29px;
+        line-height: 30px;
+    }
+    @include respond (phone-xm) {
+        font-size: 26px;
+    }
+}
+h3 {
+    font-size: 30px;
+    font-weight: $fontBold;
+    line-height: 36px;
+
+    @include respond (phone-sm) {
+        font-size: 29px;
+    }
+}
+h4 {
+    font-size: 22px;
+    font-weight: $fontBold;
+    line-height: 36px;
+
+    @include respond (phone-sm) {
+        font-size: 22px !important;
+    }
+}
+h5 {
+    font-size: 20px;
+    font-weight: $fontBold;
+    line-height: 26px;
+}
+
+
+@media (min-width: 480px) and (max-width: 575px) {
+    .col-xm-6 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+}
+
+
+
+.bg-color {
+    background: $clrbg;
+}
+
+.text-green {
+    color: green;
+}
+.text-red {
+    color: red;
+}
+
+  
+p {
+    font-family: $fontRoboto;
+    color: $clrPrimary;
+    font-size: 16px;
+    font-weight: $fontRegular;
+    line-height: 1.6;
+    margin-bottom: 0;
+    transition: all .3s ease-in-out;
+}
+
+@include section-title;
+
+ul,
+li {
+    list-style: none;
+    text-decoration: none;
+    margin-bottom: 0;
+	padding: 0;
+}
+
+
+img {
+	display: block;
+	width: 100%;
+	height: auto;	
+}
+
+figure {
+	margin: 0;
+}
+section {
+	display: block;
+	position: relative;
+	padding: 90px 0;
+	width: 100%;
+
+    @include respond (phone) {
+        padding: 50px 0px !important;
+    }
+    @include respond (phone-sm) {
+        padding: 40px 0px !important;
+    }
+}
+
+
+// Padding-Top
+
+.pt-5 {
+    padding-top: 5px;
+}
+.pt-10 {
+    padding-top: 10px;
+}
+.pt-15 {
+    padding-top: 15px;
+}
+.pt-20 {
+    padding-top: 20px;
+}
+.pt-25 {
+    padding-top: 25px;
+}
+.pt-30 {
+    padding-top: 30px;
+}
+.pt-35 {
+    padding-top: 35px;
+}
+.pt-40 {
+    padding-top: 40px;
+}
+.pt-45 {
+    padding-top: 45px;
+}
+.pt-50 {
+    padding-top: 50px;
+}
+.pt-55 {
+    padding-top: 55px;
+}
+.pt-60 {
+    padding-top: 60px;
+}
+.pt-65 {
+    padding-top: 65px;
+}
+.pt-70 {
+    padding-top: 70px;
+}
+.pt-80 {
+    padding-top: 80px;
+}
+
+// Padding-bottom
+
+.pb-5 {
+    padding-bottom: 5px;
+}
+.pb-10 {
+    padding-bottom: 10px;
+}
+.pb-15 {
+    padding-bottom: 15px;
+}
+.pb-20 {
+    padding-bottom: 20px;
+}
+.pb-25 {
+    padding-bottom: 25px;
+}
+.pb-30 {
+    padding-bottom: 30px;
+}
+.pb-35 {
+    padding-bottom: 35px;
+}
+.pb-40 {
+    padding-bottom: 40px;
+}
+.pb-45 {
+    padding-bottom: 45px;
+}
+.pb-50 {
+    padding-bottom: 50px;
+}
+.pb-55 {
+    padding-bottom: 55px;
+}
+.pb-60 {
+    padding-bottom: 60px;
+}
+.pb-65 {
+    padding-bottom: 65px;
+}
+.pb-70 {
+    padding-bottom: 70px;
+}
+.pb-80 {
+    padding-bottom: 80px;
+}
+
+// Margin-Top
+
+.mt-5 {
+    margin-top: 5px;
+}
+.mt-10 {
+    margin-top: 10px;
+}
+.mt-15 {
+    margin-top: 15px;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+.mt-25 {
+    margin-top: 25px;
+}
+.mt-30 {
+    margin-top: 30px;
+}
+.mt-35 {
+    margin-top: 35px;
+}
+.mt-40 {
+    margin-top: 40px;
+}
+.mt-45 {
+    margin-top: 45px;
+}
+.mt-50 {
+    margin-top: 50px;
+}
+.mt-55 {
+    margin-top: 55px;
+}
+.mt-60 {
+    margin-top: 60px;
+}
+.mt-65 {
+    margin-top: 65px;
+}
+.mt-70 {
+    margin-top: 70px;
+}
+.mt-80 {
+    margin-top: 80px;
+}
+
+// Margin-bottom
+
+
+.mb-5 {
+    margin-bottom: 5px;
+}
+.mb-10 {
+    margin-bottom: 10px;
+}
+.mb-15 {
+    margin-bottom: 15px;
+}
+.mb-20 {
+    margin-bottom: 20px;
+}
+.mb-25 {
+    margin-bottom: 25px;
+}
+.mb-30 {
+    margin-bottom: 30px;
+}
+.mb-35 {
+    margin-bottom: 35px;
+}
+.mb-40 {
+    margin-bottom: 40px;
+}
+.mb-45 {
+    margin-bottom: 45px;
+}
+.mb-50 {
+    margin-bottom: 50px;
+}
+.mb-55 {
+    margin-bottom: 55px;
+}
+.mb-60 {
+    margin-bottom: 60px;
+}
+.mb-65 {
+    margin-bottom: 65px;
+}
+.mb-70 {
+    margin-bottom: 70px;
+}
+.mb-80 {
+    margin-bottom: 80px;
+}

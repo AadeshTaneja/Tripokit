@@ -1,0 +1,75 @@
+// TOur List Start
+
+.tour-inner-box {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    background: $clrdefault;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 0px 30px rgba(142, 141, 141, 0.13);
+    transition: $transition;
+
+    .image-box {
+        img {
+            border-radius: 5px;
+        }
+
+        @include respond (phone-sm) {
+            display: none;
+        }
+    }
+    .content-box {
+        padding-left: 30px;
+        display: block;
+        flex: 1;
+
+        @include respond (phone-sm) {
+            padding-left: 0;
+        }
+
+        h4 a {
+            font-family: $fontRoboto;
+            color: $clrheading;
+            transition: $transition;
+
+            &:hover {
+                color: $clrMain;
+            }
+        }
+        h5 {
+            margin: 5px 0px 10px;
+            color: $clrMain;
+            font-size: 18px;
+            span {
+                font-size: 15px;
+                font-family: $fontRoboto;
+                color: $clrPrimary;
+                font-weight: $fontRegular;
+            }
+        }
+        .btn-box {
+            margin-top: 20px;
+
+            .gs-btn {
+                padding: 8px 20px;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+        }
+    }
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.tour-inner-box {
+    &.v2 {
+        display: block;
+        padding: 10px 10px 10px;
+
+        .content-box {
+            padding: 20px;
+        }
+    }
+}
