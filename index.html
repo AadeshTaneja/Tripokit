@@ -40,7 +40,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-
+  <style>
+    .header-bttn .gs-btn.call-btn { margin-left: 12px; }
+    .mobile-nav .gs-btn.call-btn { padding: 6px 10px; font-size: 14px; }
+    .gs-btn.call-btn i { margin-right: 6px; }
+  </style>
 </head>
 
 <body>
@@ -62,6 +66,11 @@
       </div>
       <div class="cta-btn">
         <div class="search-bar">
+         <!-- >>> Add this -->
+          <a class="gs-btn gs-btn-primary call-btn" href="tel:+17162046477" style="margin-right:10px;">
+            <i class="fas fa-phone"></i> <span class="call-label">716 204 6477</span>
+          </a>
+          <!-- <<< -->
           <div class="search-btn">
             <a href="https://rzp.io/l/XoIZ9kog">
               <i class="fab fa-cc-visa visa-icon"></i>
@@ -95,11 +104,14 @@
               <li class="nav-item">
                 <a href="./contact.html">Contact Us </a>
               </li>
+              
             </ul>
             <div class="header-btn d-lg-flex d-none align-items-center">
 
               <div class="header-bttn">
-               
+                <a class="gs-btn gs-btn-primary call-btn" href="tel:+17162046477">
+                  <i class="fas fa-phone"></i> <span class="call-label">716 204 6477</span>
+                </a>
               </div>
             </div>
           </div>
@@ -794,7 +806,49 @@
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="assets/js/popper.min.js"></script>
   <script src="assets/js/script.js"></script>
+  <script>
+  (function () {
+    // Map of country -> number
+    const PHONES = {
+      "Australia":     { display: "02 9671 9382", tel: "+61296719382" },
+      "United States": { display: "716 204 6477", tel: "+17162046477" },
+      "India":         { display: "90174 59100",  tel: "+919017459100" },
+      "Canada":        { display: "604 774 4493", tel: "+16047744493" },
+      "New Zealand":   { display: "9 884 8944",   tel: "+6498848944" }
+    };
 
+    // Update all call buttons/labels found in the DOM
+    function applyToDom(entry, countryLabel) {
+      const btns = document.querySelectorAll('.call-btn');
+      const labels = document.querySelectorAll('.call-label');
+      btns.forEach(b => b.setAttribute('href', 'tel:' + entry.tel));
+      labels.forEach(l => l.textContent = entry.display);
+      // Optional: title tooltip
+      btns.forEach(b => b.title = `Call (${countryLabel})`);
+    }
+
+    // 1) Default to USA immediately (no flash of empty)
+    applyToDom(PHONES["United States"], "United States");
+
+    // 2) Use last cached country to avoid refetching each page load
+    const cached = localStorage.getItem('tripokit_geo_country');
+    if (cached && PHONES[cached]) {
+      applyToDom(PHONES[cached], cached);
+    }
+
+    // 3) Fetch live country and update (ipapi.co)
+    fetch("https://ipapi.co/json/")
+      .then(r => r.json())
+      .then(d => {
+        const country = d && d.country_name;
+        if (country && PHONES[country]) {
+          localStorage.setItem('tripokit_geo_country', country);
+          applyToDom(PHONES[country], country);
+        }
+      })
+      .catch(() => { /* silently keep default */ });
+  })();
+  </script>
 
 </body>
 
