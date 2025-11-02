@@ -5,33 +5,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tripokit - Tours & Travel Agency</title>
-
+    <title>Tripokit - Tours & Travel Agency</title>
 
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-
     <!-- THEMIFY ICON -->
     <link rel="stylesheet" href="assets/css/themify-icons.css">
-
     <!-- FANCYBOX  -->
     <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
-
     <!-- NICE SELECT -->
     <link rel="stylesheet" href="assets/css/nice-select.css">
-
     <!-- MEAN MENU -->
     <link rel="stylesheet" href="assets/css/meanmenu.min.css">
-
     <!-- OWL CAROUSEL -->
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-
-    <!-- BOOTSTRAPH -->
+    <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
     <!-- CUSTOM SCSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Optional tiny tweaks for call button spacing -->
+    <style>
+      .header-bttn .gs-btn.call-btn { margin-left: 12px; }
+      .mobile-nav .gs-btn.call-btn { padding: 6px 10px; font-size: 14px; }
+      .gs-btn.call-btn i { margin-right: 6px; }
+    </style>
 </head>
 
 <body>
@@ -48,17 +47,23 @@
 			<div class="mobile-nav">
 				<div class="logo">
 					<a href="./index.html">
-					<h2 class="logo-text">trip<span class="blue-text">o</span>kit</h2>
+					  <h2 class="logo-text">trip<span class="blue-text">o</span>kit</h2>
 					</a>
 				</div>
 				<div class="cta-btn">
 					<div class="search-bar">
+
+            <!-- >>> MOBILE call button added -->
+            <a class="gs-btn gs-btn-primary call-btn" href="tel:+17162046477" style="margin-right:10px;">
+              <i class="fas fa-phone"></i> <span class="call-label">716 204 6477</span>
+            </a>
+            <!-- <<< -->
+
             <div class="search-btn">
               <a href="https://rzp.io/l/XoIZ9kog">
                 <i class="fab fa-cc-visa visa-icon"></i>
               </a>
             </div>
-
 					</div>
 				</div>
 			</div>
@@ -78,19 +83,22 @@
                 <li class="nav-item">
                   <a href="./about.html" class="active">About</a>
                 </li>
-
                 <li class="nav-item">
                   <a href="./service.html"> Services </a>
                 </li>
-
                 <li class="nav-item">
                   <a href="./contact.html">Contact Us</a>
                 </li>
               </ul>
               <div class="header-btn d-lg-flex d-none align-items-center">
-
                 <div class="header-bttn">
-                     
+
+                  <!-- >>> DESKTOP call button added -->
+                  <a class="gs-btn gs-btn-primary call-btn" href="tel:+17162046477">
+                    <i class="fas fa-phone"></i> <span class="call-label">716 204 6477</span>
+                  </a>
+                  <!-- <<< -->
+
                 </div>
               </div>
             </div>
@@ -118,7 +126,6 @@
     </div>
     <!-- Banner End -->
 
-
     <!-- About Start -->
     <section class="about-section">
         <div class="container">
@@ -127,7 +134,6 @@
                     <div class="about-img">
                         <div class="video-bg round">
                             <img src="assets/images/about/travel.jpg" alt="blog">
-
                         </div>
                     </div>
                 </div>
@@ -238,8 +244,6 @@
         </div>
     </section>
     <!-- Frature Section start -->
-
-
 
     <!-- TESTIMONIAL SECTION START -->
     <section class="testimonial-section">
@@ -454,9 +458,6 @@
 		</footer>
     <!-- Footer End -->
 
-
-
-
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
     <script src="assets/js/jquery.nice-select.js"></script>
@@ -466,6 +467,50 @@
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/script.js"></script>
 
-</body>
+    <!-- Geo script (location-based phone) -->
+    <script>
+    (function () {
+      // Map of country -> number
+      const PHONES = {
+        "Australia":     { display: "02 9671 9382", tel: "+61296719382" },
+        "United States": { display: "716 204 6477", tel: "+17162046477" },
+        "India":         { display: "90174 59100",  tel: "+919017459100" },
+        "Canada":        { display: "604 774 4493", tel: "+16047744493" },
+        "New Zealand":   { display: "9 884 8944",   tel: "+6498848944" }
+      };
 
+      // Update all call buttons/labels found in the DOM
+      function applyToDom(entry, countryLabel) {
+        const btns = document.querySelectorAll('.call-btn');
+        const labels = document.querySelectorAll('.call-label');
+        btns.forEach(b => b.setAttribute('href', 'tel:' + entry.tel));
+        labels.forEach(l => l.textContent = entry.display);
+        // Optional: title tooltip
+        btns.forEach(b => b.title = `Call (${countryLabel})`);
+      }
+
+      // 1) Default to USA immediately (no flash of empty)
+      applyToDom(PHONES["United States"], "United States");
+
+      // 2) Use last cached country to avoid refetching each page load
+      const cached = localStorage.getItem('tripokit_geo_country');
+      if (cached && PHONES[cached]) {
+        applyToDom(PHONES[cached], cached);
+      }
+
+      // 3) Fetch live country and update (ipapi.co)
+      fetch("https://ipapi.co/json/")
+        .then(r => r.json())
+        .then(d => {
+          const country = d && d.country_name;
+          if (country && PHONES[country]) {
+            localStorage.setItem('tripokit_geo_country', country);
+            applyToDom(PHONES[country], country);
+          }
+        })
+        .catch(() => { /* silently keep default */ });
+    })();
+    </script>
+
+</body>
 </html>
