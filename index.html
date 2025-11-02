@@ -44,6 +44,55 @@
     .header-bttn .gs-btn.call-btn { margin-left: 12px; }
     .mobile-nav .gs-btn.call-btn { padding: 6px 10px; font-size: 14px; }
     .gs-btn.call-btn i { margin-right: 6px; }
+     /* MOBILE HEADER TWEAKS */
+    @media (max-width: 768px) {
+
+      /* hide the VISA thing entirely on mobile */
+      .mobile-nav .search-btn,
+      .mobile-nav .visa-icon { 
+        display: none !important;
+      }
+
+      /* make the phone badge compact and aligned */
+      .mobile-nav .search-bar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+       .mobile-nav .gs-btn.call-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        background: #ea6a32;          /* solid orange background */
+        color: #fff !important;
+        border: none;                 /* remove the thin orange outline */
+        border-radius: 8px;
+        padding: 10px 16px;
+        font-weight: 600;
+        font-size: 14px;
+        box-shadow: none;
+        min-width: 120px;         /* ensures the number fits */
+      }
+
+      .mobile-nav .gs-btn.call-btn i {
+        color: #fff;
+        margin: 0;
+        font-size: 16px;
+      }
+
+      /* ensure number stays on one line */
+      .mobile-nav .call-label {
+        white-space: nowrap;
+      }
+    }
+
+      /* give the hamburger a tiny bit of breathing room */
+      .meanmenu-reveal {
+        margin-left: 8px;
+      }
+    
   </style>
 </head>
 
