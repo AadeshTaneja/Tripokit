@@ -1,411 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tripokit - Tours & Travel Agency</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tripokit - Tours & Travel Agency</title>
 
+  <!-- CSS vendor -->
+  <link rel="stylesheet" href="assets/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="assets/css/themify-icons.css" />
+  <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css" />
+  <link rel="stylesheet" href="assets/css/nice-select.css" />
+  <link rel="stylesheet" href="assets/css/meanmenu.min.css" />
+  <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 
-    <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="assets/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+<!-- Page tweaks -->
+<style>
+    #other-offices {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    @media (min-width: 768px) {
+        #other-offices {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
 
-    <!-- THEMIFY ICON -->
-    <link rel="stylesheet" href="assets/css/themify-icons.css">
+      /* Orange by default, white on hover */
+    .other-office {
+        border: 1px solid #ea6a32;
+        border-radius: 12px;
+        padding: 20px;
+        background: #ea6a32;
+        color: #fff;
+        transition: all 0.3s ease;
+    }
 
-    <!-- FANCYBOX  -->
-    <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+    .other-office h5,
+    .other-office a,
+    .other-office .muted {
+        color: #fff;
+        transition: all 0.3s ease;
+    }
 
-    <!-- NICE SELECT -->
-    <link rel="stylesheet" href="assets/css/nice-select.css">
+    .other-office:hover {
+        background: #fff;
+        color: #333;
+        border-color: #ea6a32;
+        transform: translateY(-4px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
 
-    <!-- MEAN MENU -->
-    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+    .other-office:hover h5,
+    .other-office:hover a,
+    .other-office:hover .muted {
+        color: #333;
+    }
 
-    <!-- OWL CAROUSEL -->
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    .other-office .fa-phone {
+        font-size: 18px;
+        color: #fff;
+        margin-right: 8px;
+        transition: all 0.3s ease;
+    }
 
-    <!-- BOOTSTRAPH -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    .other-office:hover .fa-phone {
+        color: #ea6a32;
+    }
+    /* Call button — consistent layout */
+    .gs-btn.call-btn{
+        display:inline-flex;
+        align-items:center;
+        gap:10px;                 /* space between icon and number */
+        padding:10px 16px;
+        background:#ea6a32;
+        color:#fff !important;
+        border-radius:10px;
+        font-weight:700;
+        line-height:1;            /* stop vertical wobble */
+        white-space:nowrap;       /* keep the number on one line */
+        text-decoration:none !important;
+    }
+    .gs-btn.call-btn i{
+        font-size:18px;           /* tame the icon size */
+        margin:0;                 /* kill inherited margins */
+        flex:0 0 auto;            /* don’t let it stretch/shrink */
+    }
 
-    <!-- CUSTOM SCSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    /* Header-specific sizing */
+    .header-bttn .gs-btn.call-btn{ margin-left:12px; }
+    .mobile-nav .gs-btn.call-btn{ padding:8px 12px; font-size:14px; gap:8px; }
+    .mobile-nav .gs-btn.call-btn i{ font-size:16px; }
+
+    /* If screens are super narrow, show icon-only (optional) */
+    @media (max-width:360px){
+        .call-label{ display:none; }
+    }
+     .header-bttn .gs-btn.call-btn { margin-left: 12px; }
+    .mobile-nav .gs-btn.call-btn { padding: 6px 10px; font-size: 14px; }
+    .gs-btn.call-btn i { margin-right: 6px; }
+     /* MOBILE HEADER TWEAKS */
+    @media (max-width: 768px) {
+
+      /* hide the VISA thing entirely on mobile */
+      .mobile-nav .search-btn,
+      .mobile-nav .visa-icon { 
+        display: none !important;
+      }
+
+      /* make the phone badge compact and aligned */
+      .mobile-nav .search-bar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+       .mobile-nav .gs-btn.call-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        background: #ea6a32;          /* solid orange background */
+        color: #fff !important;
+        border: none;                 /* remove the thin orange outline */
+        border-radius: 8px;
+        padding: 10px 16px;
+        font-weight: 600;
+        font-size: 14px;
+        box-shadow: none;
+        min-width: 120px;         /* ensures the number fits */
+      }
+
+      .mobile-nav .gs-btn.call-btn i {
+        color: #fff;
+        margin: 0;
+        font-size: 16px;
+      }
+
+      /* ensure number stays on one line */
+      .mobile-nav .call-label {
+        white-space: nowrap;
+      }
+    }
+
+      /* give the hamburger a tiny bit of breathing room */
+      .meanmenu-reveal {
+        margin-left: 8px;
+      }
+    </style>
 </head>
-
 <body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div id="status"><img src="assets/images/logo/favicon1.png" alt="perloader" /></div>
+  </div>
 
-     <!-- Preloader -->
-     <div id="preloader">
-        <div id="status">
-            <img src="assets/images/logo/favicon1.png" alt="perloader">
+  <!-- Header Start -->
+  <header class="header fixed-menu">
+    <div class="mobile-nav">
+      <div class="logo">
+        <a href="./index.html"><h2 class="logo-text">trip<span class="blue-text">o</span>kit</h2></a>
+      </div>
+      <div class="cta-btn">
+        <div class="search-bar">
+
+          <!-- MOBILE call button -->
+          <a class="gs-btn gs-btn-primary call-btn" href="tel:+17162046477" style="margin-right:10px;">
+            <i class="fas fa-phone"></i> <span class="call-label">716 204 6477</span>
+          </a>
+
+          <div class="search-btn">
+            <a href="https://rzp.io/l/XoIZ9kog"><i class="fab fa-cc-visa visa-icon"></i></a>
+          </div>
         </div>
+      </div>
     </div>
 
-    <!-- Header Start -->
-    <header class="header fixed-menu">
-			<div class="mobile-nav">
-				<div class="logo">
-					<a href="./index.html">
-						<h2 class="logo-text">trip<span class="blue-text">o</span>kit</h2>
-					</a>
-				</div>
-				<div class="cta-btn">
-					<div class="search-bar">
-            <div class="search-btn">
-              <a href="https://rzp.io/l/XoIZ9kog">
-                <i class="fab fa-cc-visa visa-icon"></i>
-              </a>
-            </div>
-
-					</div>
-				</div>
-			</div>
-      <div class="main-nav">
-        <nav class="navbar navbar-expand-md">
-          <div class="container">
-            <a class="logo" href="./index.html">
-              <h2 class="logo-text">trip<span class="blue-text">o</span>kit</h2>
-            </a>
-            <div class="navbar-collapse mean-menu">
-              <ul class="navbar-nav m-auto">
-                <li class="nav-item">
-                  <a href="./index.html" > Home</a>
-                </li>
-                <li class="nav-item">
-                  <a href="./about.html">About</a>
-                </li>
-
-                <li class="nav-item">
-                  <a href="./service.html"> Services </a>
-                </li>
-
-                <li class="nav-item">
-                  <a href="./contact.html" class="active">Contact Us</a>
-                </li>
-              </ul>
-              <div class="header-btn d-lg-flex d-none align-items-center">
-
-                <div class="header-bttn">
-                   
-                </div>
+    <div class="main-nav">
+      <nav class="navbar navbar-expand-md">
+        <div class="container">
+          <a class="logo" href="./index.html"><h2 class="logo-text">trip<span class="blue-text">o</span>kit</h2></a>
+          <div class="navbar-collapse mean-menu">
+            <ul class="navbar-nav m-auto">
+              <li class="nav-item"><a href="./index.html"> Home</a></li>
+              <li class="nav-item"><a href="./about.html">About</a></li>
+              <li class="nav-item"><a href="./service.html"> Services </a></li>
+              <li class="nav-item"><a href="./contact.html" class="active">Contact Us</a></li>
+            </ul>
+            <div class="header-btn d-lg-flex d-none align-items-center">
+              <div class="header-bttn">
+                <!-- DESKTOP call button -->
+                <a class="gs-btn gs-btn-primary call-btn" href="tel:+17162046477">
+                  <i class="fas fa-phone"></i> <span class="call-label">716 204 6477</span>
+                </a>
               </div>
             </div>
           </div>
-        </nav>
-      </div>
-		</header>
-    <!-- Header End -->
-
-    <!-- Banner Start -->
-    <div class="page-banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-banner-title text-center">
-                        <h2 class="text-capitalized">Contact</h2>
-                        <div class="link">
-                            <a href="./index.html">Home</a>
-                            <span>/</span>Contact
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
+      </nav>
     </div>
-    <!-- Banner End -->
+  </header>
+  <!-- Header End -->
 
-    <!-- MAP SECTION -->
-
-    <section class="location-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div id="map">
-                    </div>
-                </div>
+  <!-- Banner Start -->
+  <div class="page-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="page-banner-title text-center">
+            <h2 class="text-capitalized">Contact</h2>
+            <div class="link">
+              <a href="./index.html">Home</a> <span>/</span>Contact
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+  <!-- Banner End -->
 
-    <!-- MAP SECTION -->
+  <!-- MAP SECTION -->
+  <section class="location-section">
+    <div class="container">
+      <div class="row"><div class="col-12"><div id="map"></div></div></div>
+    </div>
+  </section>
+  <!-- MAP SECTION -->
 
-    <!-- CONTACT PAGE START -->
-
-    <section class="contact-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="single-border text-left">
-                        <div class="sub-title">
-                            <h5>Contact With Us</h5>
-                        </div>
-                        <h2>If you Have any query, Dont Hesitate <br> Contact with us</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="contact-inform">
-                        <div class="address d-flex align-items-center">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div class="information" id="office-address">
-
-                                <h4>Office Address</h4>
-                                Tripokit Inc. <br>
-                                1288 Electric Ave, <br>Lackawanna, Buffalo<br> NY 14218
-
-                            </div>
-                        </div>
-                        <div class="address d-flex align-items-center">
-                            <i class="fas fa-phone"></i>
-                            <div class=" information" id="office-phone">
-                                <h4>Phone</h4>
-                                <a href="tel:+919017459100">+1 716 256 3686</a>
-                                <br>
-
-                            </div>
-                        </div>
-                        <div class="address d-flex align-items-center">
-                            <i class="fas fa-envelope-open"></i>
-                            <div class=" information">
-                                <h4>Email</h4>
-                                <a href="mailto:info@tripokit.com">contact@tripokit.com</a>
-                                <br>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-7">
-                    <div class="row">
-                        <div class="col-12">
-							<div class="form">
-								<form action="https://api.web3forms.com/submit" method="POST" id="form">
-									<div class="row">
-										<input type="hidden" name="apikey" value="YOUR_ACCESS_KEY_HERE">
-										<div class="col-lg-6 col-md-6">
-											<input type="text" class="text" placeholder="Full name" required>
-										</div>
-										<div class="col-lg-6 col-md-6">
-											<input type="email" class="text" placeholder="Email Address" required>
-										</div>
-										<div class="col-lg-6 col-md-6">
-											<input type="tel" class="text" placeholder="Phone" required>
-										</div>
-										<div class="col-lg-6 col-md-6">
-											<input type="text" class="text" placeholder="Subject" required>
-										</div>
-									</div>
-									<textarea class="subject" name="subject" placeholder="Your Message"></textarea>
-									<button type="submit" class="gs-btn gs-btn-primary submit">
-										Send Message<i class="fas fa-arrow-right"></i>
-									</button>
-									<p class="text-base text-left text-gray-400 mt-10" id="result"></p>
-								</form>
-							</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- CONTACT PAGE START -->
+  <section class="contact-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="single-border text-left">
+            <div class="sub-title"><h5>Contact With Us</h5></div>
+            <h2>If you Have any query, Dont Hesitate <br /> Contact with us</h2>
+          </div>
         </div>
-    </section>
+      </div>
 
-
-    <!-- CONTACT PAGE END -->
-
-
-    <!-- PARTNER SECTION START -->
-    <section class="partner-section bg-color">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="owl-carousel partner-logo">
-                        <div class="item">
-                            <img src="assets/images/partner/1.png" alt="partner">
-                        </div>
-                        <div class="item">
-                            <img src="assets/images/partner/2.png" alt="partner">
-                        </div>
-                        <div class="item">
-                            <img src="assets/images/partner/3.png" alt="partner">
-                        </div>
-                        <div class="item">
-                            <img src="assets/images/partner/4.png" alt="partner">
-                        </div>
-                        <div class="item">
-                            <img src="assets/images/partner/5.png" alt="partner">
-                        </div>
-                    </div>
-                </div>
+      <div class="row">
+        <!-- Left: Detected office first -->
+        <div class="col-md-5">
+          <div class="contact-inform">
+            <!-- Primary office (detected) -->
+            <div class="address d-flex align-items-center">
+              <i class="fas fa-map-marker-alt"></i>
+              <div class="information" id="office-address">
+                <h4>Office Address</h4>
+                Tripokit Inc. <br />1288 Electric Ave,<br />Lackawanna, Buffalo<br />NY 14218
+              </div>
             </div>
+
+            <div class="address d-flex align-items-center">
+              <i class="fas fa-phone"></i>
+              <div class="information" id="office-phone">
+                <h4>Phone</h4>
+                <a href="tel:+17162046477">716 204 6477</a>
+              </div>
+            </div>
+
+            <div class="address d-flex align-items-center">
+              <i class="fas fa-envelope-open"></i>
+              <div class="information" id="office-email">
+                <h4>Email</h4>
+                <a href="mailto:contact@tripokit.com">contact@tripokit.com</a>
+              </div>
+            </div>
+
+
+          </div>
         </div>
-    </section>
-    <!-- PARTNER SECTION END -->
 
-    <!-- Footer Start -->
-    <footer class="footer-section">
-		<div class="container">
-			<div class="footer-cta">
-				<div class="row">
-					<div class="col-xl-4 col-md-4">
-						<div class="foo-single-cta">
-							<i class="fas fa-map-marker-alt"></i>
-							<div class="cta-text">
-								<h4>Find us</h4>
-								<span>1010 Avenue, sw 54321, chandigarh</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-4 col-md-4">
-						<div class="foo-single-cta">
-							<i class="fas fa-phone"></i>
-							<div class="cta-text">
-								<h4>Call us</h4>
-								<a href="#">+987 654 3210</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-4 col-md-4">
-						<div class="foo-single-cta">
-							<i class="far fa-envelope-open"></i>
-							<div class="cta-text">
-								<h4>Mail us</h4>
-								<a href="mailto:info@example.com">info@example.com</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="footer-widget">
-						<div class="footer-logo">
-						<h2 class="logo-text">trip<span class="blue-text">o</span>kit</h2>
-						</div>
-						<p>Make your travel with us and have a wonderful journey with your family and friends. To know more:</p>
-						<div class="footer-social-icon">
-							<h4>Follow us</h4>
-							<a href="#"><i class="fab fa-facebook-f"></i></a>
-							<a href="#"><i class="fab fa-twitter"></i></a>
-							<a href="#"><i class="fab fa-google-plus-g"></i></a>
-							<a href="#"><i class="fab fa-linkedin-in"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6">
-					<div class="footer-widget">
+        <!-- Right: form -->
+        <div class="col-md-7">
+          <div class="row">
+            <div class="col-12">
+              <div class="form">
+                <form action="https://api.web3forms.com/submit" method="POST" id="form">
+                  <div class="row">
+                    <input type="hidden" name="apikey" value="YOUR_ACCESS_KEY_HERE" />
+                    <div class="col-lg-6 col-md-6"><input type="text" class="text" placeholder="Full name" required /></div>
+                    <div class="col-lg-6 col-md-6"><input type="email" class="text" placeholder="Email Address" required /></div>
+                    <div class="col-lg-6 col-md-6"><input type="tel" class="text" placeholder="Phone" required /></div>
+                    <div class="col-lg-6 col-md-6"><input type="text" class="text" placeholder="Subject" required /></div>
+                  </div>
+                  <textarea class="subject" name="subject" placeholder="Your Message"></textarea>
+                  <button type="submit" class="gs-btn gs-btn-primary submit">Send Message<i class="fas fa-arrow-right"></i></button>
+                  <p class="text-base text-left text-gray-400 mt-10" id="result"></p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /row -->
+        <!-- Full-width Other Locations -->
+    <div class="row">
+    <div class="col-12">
+        <section id="other-offices-section">
+        <h4 class="mb-3">Other Locations</h4>
+        <div id="other-offices"></div>
+        </section>
+    </div>
+    </div>
+    </div>
+  </section>
+  <!-- CONTACT PAGE END -->
 
-					</div>
-				</div>
-				<div class="col-lg-2 col-md-6 col-sm-6">
-					<div class="footer-widget">
-						<div class="footer-widget-heading">
-							<h4>Useful Links</h4>
-						</div>
-						<ul>
+  <!-- PARTNER SECTION START -->
+  <section class="partner-section bg-color">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="owl-carousel partner-logo">
+            <div class="item"><img src="assets/images/partner/1.png" alt="partner" /></div>
+            <div class="item"><img src="assets/images/partner/2.png" alt="partner" /></div>
+            <div class="item"><img src="assets/images/partner/3.png" alt="partner" /></div>
+            <div class="item"><img src="assets/images/partner/4.png" alt="partner" /></div>
+            <div class="item"><img src="assets/images/partner/5.png" alt="partner" /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- PARTNER SECTION END -->
+
+  <!-- Footer Start -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="footer-cta">
+        <div class="row">
+          <div class="col-xl-4 col-md-4">
+            <div class="foo-single-cta">
+              <i class="fas fa-map-marker-alt"></i>
+              <div class="cta-text"><h4>Find us</h4><span>1010 Avenue, sw 54321, chandigarh</span></div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-4">
+            <div class="foo-single-cta">
+              <i class="fas fa-phone"></i>
+              <div class="cta-text"><h4>Call us</h4><a href="#">+987 654 3210</a></div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-4">
+            <div class="foo-single-cta">
+              <i class="far fa-envelope-open"></i>
+              <div class="cta-text"><h4>Mail us</h4><a href="mailto:info@example.com">info@example.com</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="footer-widget">
+            <div class="footer-logo"><h2 class="logo-text">trip<span class="blue-text">o</span>kit</h2></div>
+            <p>Make your travel with us and have a wonderful journey with your family and friends. To know more:</p>
+            <div class="footer-social-icon">
+              <h4>Follow us</h4>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-google-plus-g"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6"><div class="footer-widget"></div></div>
+        <div class="col-lg-2 col-md-6 col-sm-6">
+          <div class="footer-widget">
+            <div class="footer-widget-heading"><h4>Useful Links</h4></div>
+            <ul>
               <li><a href="./index.html">Home</a></li>
               <li><a href="./about.html">About</a></li>
               <li><a href="./service.html">Services</a></li>
               <li><a href="./contact.html">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="footer-widget">
-						<div class="footer-widget-heading">
-							<h4>Subscribe</h4>
-						</div>
-						<div class="footer-text">
-							<p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
-						</div>
-						<div class="subscribe-form">
-							<form action="#">
-								<input type="text" placeholder="Email Address" />
-								<button><i class="fab fa-telegram-plane"></i></button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="copyright-area">
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-6 col-lg-6 text-center text-lg-left">
-						<div class="copyright-text">
-							<p>Copyright &copy; 2021, All Right Reserved</p>
-						</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
-						<div class="footer-menu">
-							<ul>
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Terms</a></li>
-								<li><a href="#">Privacy</a></li>
-								<li><a href="#">Policy</a></li>
-								<li><a href="#">Contact</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-    <!-- Footer End -->
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="footer-widget">
+            <div class="footer-widget-heading"><h4>Subscribe</h4></div>
+            <div class="footer-text"><p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p></div>
+            <div class="subscribe-form">
+              <form action="#"><input type="text" placeholder="Email Address" /><button><i class="fab fa-telegram-plane"></i></button></form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+            <div class="copyright-text"><p>Copyright &copy; 2021, All Right Reserved</p></div>
+          </div>
+          <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+            <div class="footer-menu">
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Policy</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer End -->
 
+  <!-- JS vendor -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/owl.carousel.min.js"></script>
+  <script src="assets/js/jquery.nice-select.js"></script>
+  <script src="assets/js/meanmenu.min.js"></script>
+  <script src="assets/js/jquery.fancybox.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/script.js"></script>
 
-
-
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/jquery.nice-select.js"></script>
-    <script src="assets/js/meanmenu.min.js"></script>
-    <script src="assets/js/jquery.fancybox.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script>
-    (function () {
-    const officeData = {
-        "Australia": {
-        address: `Tripokit Pty Ltd.<br>Sydney, NSW, Australia`,
-        phone: { display: "02 9671 9382", tel: "02 9671 9382" }
-        },
-        "United States": {
-        address: `Tripokit Inc.<br>New York, US`,
-        phone: { display: "716 204 6477", tel: "716 204 6477" }
-        },
-        "India": {
-        address: `Tripokit India Pvt Ltd.<br>Chandigarh, India`,
-        phone: { display: "90174 59100", tel: "90174 59100" }
-        },
-        "Canada": {
-        address: `Tripokit Canada Ltd.<br>Toronto, Canada`,
-        phone: { display: "604 774 4493", tel: "604 774 4493" }
-        },
-        "New Zealand": {
-        address: `Tripokit NZ Ltd.<br>Auckland, New Zealand`,
-        phone: { display: "9884 8944", tel: "9884 8944" }
-        }
+  <!-- Geo & rendering script -->
+  <script>
+  (function () {
+    // Phones used everywhere (also update the header call buttons)
+    const PHONES = {
+      "Australia":     { display: "02 9671 9382", tel: "+61296719382" },
+      "United States": { display: "716 204 6477", tel: "+17162046477" },
+      "India":         { display: "90174 59100",  tel: "+919017459100" },
+      "Canada":        { display: "604 774 4493", tel: "+16047744493" },
+      "New Zealand":   { display: "9 884 8944",   tel: "+6498848944" }
     };
 
-    const addrEl = document.getElementById("office-address");
-    const phoneEl = document.getElementById("office-phone");
+    // Full office blocks
+    const OFFICES = {
+      "Australia": {
+        name: "Tripokit Travel Group Pty Ltd",
+        addressLines: ["Sydney, NSW"],
+        phoneKey: "Australia",
+        email: "contact@tripokit.com.au"
+      },
+      "United States": {
+        name: "Tripokit Inc.",
+        addressLines: ["1288 Electric Ave", "Buffalo", "NY 14218"],
+        phoneKey: "United States",
+        email: "contact@tripokit.com"
+      },
+      "India": {
+        name: "Tripokit Private Limited",
+        addressLines: ["Flexi Tower, Sector 75, SAS Nagar", "Mohali, Punjab 140307"],
+        phoneKey: "India",
+        email: "contact@tripokit.com"
+      },
+      "Canada": {
+        name: "Tripokit Inc.",
+        addressLines: ["1288 Electric Ave", "Buffalo", "NY 14218"],
+        phoneKey: "Canada",
+        email: "contact@tripokit.com"
+      },
+      "New Zealand": {
+        name: "Tripokit Travel Group Pty Ltd",
+        addressLines: ["Sydney, NSW"],
+        phoneKey: "New Zealand",
+        email: "contact@tripokit.com"
+      }
+    };
 
+    // ===== Helpers =====
+    function setHeaderCall(entry, label) {
+      const btns = document.querySelectorAll('.call-btn');
+      const labels = document.querySelectorAll('.call-label');
+      btns.forEach(b => {
+        b.href = 'tel:' + entry.tel;
+        b.title = 'Call (' + label + ')';
+      });
+      labels.forEach(l => l.textContent = entry.display);
+    }
+
+    function renderPrimary(country) {
+      const office = OFFICES[country];
+      const phone = PHONES[office.phoneKey];
+      const addrEl  = document.getElementById("office-address");
+      const phoneEl = document.getElementById("office-phone");
+      const emailEl = document.getElementById("office-email");
+
+      addrEl.innerHTML =
+        `<h4>Office Address</h4>${office.name}<br>${office.addressLines.join("<br>")}`;
+
+      phoneEl.innerHTML =
+        `<h4>Phone</h4><a href="tel:${phone.tel}">${phone.display}</a>`;
+
+      emailEl.innerHTML =
+        `<h4>Email</h4><a href="mailto:${office.email}">${office.email}</a>`;
+    }
+
+    function renderOthers(primaryCountry) {
+      const container = document.getElementById("other-offices");
+      container.innerHTML = "";
+      Object.keys(OFFICES)
+        .filter(c => c !== primaryCountry)
+        .forEach(c => {
+          const o = OFFICES[c], p = PHONES[o.phoneKey];
+          const div = document.createElement("div");
+          div.className = "other-office";
+          div.innerHTML =
+            `<h5>${c}</h5>
+             <div class="muted">${o.name}</div>
+             <div class="muted">${o.addressLines.join(", ")}</div>
+             <div style="margin-top:6px;"><i class="fas fa-phone"></i>
+               <a href="tel:${p.tel}" style="margin-left:6px;">${p.display}</a>
+             </div>`;
+          container.appendChild(div);
+        });
+    }
+
+    // ===== Default immediately to US (no flash) =====
+    setHeaderCall(PHONES["United States"], "United States");
+    renderPrimary("United States");
+    renderOthers("United States");
+
+    // Use cached country if available
+    const cached = localStorage.getItem('tripokit_geo_country');
+    if (cached && PHONES[cached] && OFFICES[cached]) {
+      setHeaderCall(PHONES[cached], cached);
+      renderPrimary(cached);
+      renderOthers(cached);
+    }
+
+    // Live lookup and update
     fetch("https://ipapi.co/json/")
-        .then(res => res.json())
-        .then(data => {
-        const country = data.country_name;
-        const office = officeData[country];
-        if (office) {
-            addrEl.innerHTML = `<h4>Office Address</h4>${office.address}`;
-            phoneEl.innerHTML = `<h4>Phone</h4><a href="tel:${office.phone.tel}">${office.phone.display}</a>`;
+      .then(r => r.json())
+      .then(d => {
+        const country = d && d.country_name;
+        if (country && PHONES[country] && OFFICES[country]) {
+          localStorage.setItem('tripokit_geo_country', country);
+          setHeaderCall(PHONES[country], country);
+          renderPrimary(country);
+          renderOthers(country);
         }
-        })
-        .catch(err => console.error("Geo lookup failed", err));
-    })();
-    </script>
-</body>
+      })
+      .catch(() => { /* keep defaults */ });
 
+  })();
+  </script>
+</body>
 </html>
