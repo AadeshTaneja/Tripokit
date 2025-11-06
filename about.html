@@ -347,7 +347,7 @@
   <script src="assets/js/popper.min.js"></script>
   <script src="assets/js/script.js"></script>
 
-  <!-- Geo script (location-based phone) -->
+ <!-- Geo script: updates all call badges -->
   <script>
   (function () {
     const PHONES = {
@@ -359,26 +359,33 @@
     };
 
     function applyToDom(entry, countryLabel) {
-      const btns = document.querySelectorAll('.call-btn');
-      const labels = document.querySelectorAll('.call-label');
-      btns.forEach(b => b.setAttribute('href', 'tel:' + entry.tel));
-      labels.forEach(l => l.textContent = entry.display);
-      btns.forEach(b => b.title = `Call (${countryLabel})`);
+      // Support any legacy buttons if they still exist
+      document.querySelectorAll('.call-btn').forEach(b => b.href = 'tel:' + entry.tel);
+      document.querySelectorAll('.call-label').forEach(l => l.textContent = entry.display);
+
+      // New call badge
+      document.querySelectorAll('.cb-number').forEach(a => {
+        a.href = 'tel:' + entry.tel;
+        a.textContent = entry.display;
+        a.title = `Call (${countryLabel})`;
+      });
     }
 
-    // default → cached → live
+    // Default (avoid flash)
     applyToDom(PHONES["United States"], "United States");
 
+    // Cached
     const cached = localStorage.getItem('tripokit_geo_country');
     if (cached && PHONES[cached]) applyToDom(PHONES[cached], cached);
 
+    // Live
     fetch("https://ipapi.co/json/")
       .then(r => r.json())
       .then(d => {
-        const country = d && d.country_name;
-        if (country && PHONES[country]) {
-          localStorage.setItem('tripokit_geo_country', country);
-          applyToDom(PHONES[country], country);
+        const c = d && d.country_name;
+        if (c && PHONES[c]) {
+          localStorage.setItem('tripokit_geo_country', c);
+          applyToDom(PHONES[c], c);
         }
       })
       .catch(() => {});
