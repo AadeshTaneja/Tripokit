@@ -4744,3 +4744,14 @@ section {
   }
 }
 
+
+.call-247{
+  font-family: 'Open Sans', sans-serif; /* already loaded */
+  font-weight: 800;                     /* heavy like the example */
+  font-size: 14px;                      /* tweak to taste */
+  letter-spacing: .02em;
+  color: #1d3271;                       /* your navy */
+  margin: 0;
+  line-height: 1;
+  text-transform: none;                 /* or uppercase if you want */
+}
