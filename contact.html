@@ -19,6 +19,13 @@
 
   <!-- Page tweaks -->
   <style>
+
+    .fas.fa-phone,
+.fa.fa-phone,
+.ti-mobile { 
+    transform: scaleX(-1);
+    display: inline-block;   /* required so transform works properly */
+}
     /* ===== Other offices grid + hover (kept as-is) ===== */
     #other-offices {
       display: grid;
@@ -375,13 +382,13 @@
     const PHONES = {
       "Australia":     { display: "02 9671 9382", tel: "+61296719382", code: "+61" },
       "United States": { display: "716 204 6477", tel: "+17162046477", code: "+1" },
-      "India":         { display: "90174 59100",  tel: "+919017459100", code: "+91" },
+      "India":         { display: "80659 12772",  tel: "+918065912772", code: "+91" },
       "Canada":        { display: "604 774 4493", tel: "+16047744493", code: "+1" },
       "New Zealand":   { display: "9884 8944",   tel: "+6498848944", code: "+64" }
     };
 
     const OFFICES = {
-      "Australia":     { name: "Tripokit Travel Group Pty Ltd", addressLines: ["Sydney, NSW"],           phoneKey: "Australia",     email: "info@tripokit.com.au" },
+      "Australia":     { name: "Tripokit Travel Group Pty Ltd", addressLines: ["Sydney, NSW"],           phoneKey: "Australia",     email: "contact@tripokit.com.au" },
       "United States": { name: "Tripokit Inc.",                 addressLines: ["New York"],        phoneKey: "United States", email: "contact@tripokit.com" },
       "India":         { name: "Tripokit Private Limited",      addressLines: ["Mohali"],       phoneKey: "India",         email: "contact@tripokit.com" },
       "Canada":        { name: "Tripokit Inc.",                 addressLines: ["Toronto"],              phoneKey: "Canada",        email: "contact@tripokit.com" },
