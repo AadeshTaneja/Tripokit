@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +28,7 @@
   <!-- BOOTSTRAP -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
-  <!-- YOUR MAIN CSS (includes call-badge styles you added) -->
+  <!-- YOUR MAIN CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 
   <!-- Font Awesome (CDN) -->
@@ -39,6 +38,188 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
  
+  <style>
+    /* TRUSTPILOT WIDGET STYLES */
+    .testimonial-section {
+      padding: 60px 0;
+    }
+
+    .trustpilot-widget {
+      background: #fff;
+      padding: 40px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: visible;
+      position: relative;
+    }
+
+    .trustpilot-left {
+      text-align: center;
+      padding: 20px;
+      border-right: 1px solid #eee;
+    }
+
+    .trustpilot-left .title {
+      font-size: 28px;
+      font-weight: 600;
+      color: #191919;
+      margin-bottom: 15px;
+    }
+
+    .trustpilot-left .rating img {
+      max-width: 180px;
+      margin: 15px auto;
+      display: block;
+    }
+
+    .trustpilot-left .info {
+      font-size: 14px;
+      color: #191919;
+      margin: 15px 0;
+    }
+
+    .trustpilot-left .info a {
+      color: #191919;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .trustpilot-left .info a:hover {
+      text-decoration: underline;
+    }
+
+    .trustpilot-left .trustpilot-logo {
+      max-width: 120px;
+      margin: 20px auto 0;
+      display: block;
+    }
+
+    /* Review Cards */
+    .reviews-container {
+      padding: 20px;
+    }
+
+    .review-card {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 15px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .review-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .review-card .stars img {
+      max-width: 120px;
+      margin-bottom: 12px;
+    }
+
+    .review-card .review-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #191919;
+      margin: 12px 0 8px 0;
+      line-height: 1.4;
+    }
+
+    .review-card .review-text {
+      font-size: 14px;
+      color: #5a5a5a;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .review-card .reviewer-name {
+      font-size: 13px;
+      color: #787878;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    .review-card .review-date {
+      font-size: 12px;
+      color: #999;
+      margin-top: 5px;
+    }
+
+    /* Carousel Controls */
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 50px;
+      height: 50px;
+      background-color: rgba(255,255,255,0.9);
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 1;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+      background-color: #fff;
+      border-color: #999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      width: 24px;
+      height: 24px;
+      background-size: 24px;
+      filter: invert(0.3);
+    }
+
+    .carousel-control-prev {
+      left: 10px;
+    }
+
+    .carousel-control-next {
+      right: 10px;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 992px) {
+      .trustpilot-left {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 20px;
+      }
+
+      .carousel-control-prev {
+        left: 5px;
+      }
+
+      .carousel-control-next {
+        right: 5px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .review-card {
+        padding: 15px;
+      }
+
+      .carousel-control-prev,
+      .carousel-control-next {
+        width: 40px;
+        height: 40px;
+      }
+
+      .carousel-control-prev {
+        left: -5px;
+      }
+
+      .carousel-control-next {
+        right: -5px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -361,12 +542,12 @@
       </div>
     </div>
   </section>
-  <!-- Process Section start -->
+  <!-- Process Section end -->
 
   <!-- TESTIMONIAL SECTION START -->
   <section class="testimonial-section">
     <div class="container">
-      <div class="row">
+      <div class="row mb-4">
         <div class="col-12">
           <div class="section-title text-center">
             <div class="sub-title">
@@ -376,58 +557,99 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="test-caro owl-carousel">
-            <div class="test-item">
-              <div class="quote">
-                <i class="fas fa-quote-left"></i>
+
+      <div class="trustpilot-widget">
+        <div class="row">
+          <!-- Left Side - Rating Summary -->
+          <div class="col-lg-3">
+            <div class="trustpilot-left">
+              <h3 class="title">Excellent</h3>
+              <div class="rating">
+                <img src="https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-4.5.svg" alt="4.5 stars">
               </div>
-              <p>
-                Our experience with tripokit was excellent. We booked our trip for maldives through tripokit, they handled everything beautifully and without any hiccups.
-              </p>
-              <div class="content">
-                <div class="icon">
-                  <img src="assets/images/testimonial/1.jpeg" alt="test">
-                </div>
-                <div class="title">
-                  <h4><a href="#">Albert Smith</a></h4>
-                  <span>Traveler</span>
-                </div>
+              <div class="info">
+                <a href="#">4.5 out of 5</a>
               </div>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Trustpilot_Logo_%282022%29.svg/640px-Trustpilot_Logo_%282022%29.svg.png" 
+                   alt="Trustpilot" class="trustpilot-logo">
             </div>
-            <div class="test-item">
-              <div class="quote">
-                <i class="fas fa-quote-left"></i>
-              </div>
-              <p>
-                Tripokit stands on it's principle of being the best in class. We booked a europe tour from them and it was the best decision we made. They handled everything from stay to logistics.
-              </p>
-              <div class="content">
-                <div class="icon">
-                  <img src="assets/images/testimonial/2.jpeg" alt="test">
+          </div>
+
+          <!-- Right Side - Reviews Carousel -->
+          <div class="col-lg-9">
+            <div class="reviews-container">
+              <div id="reviewCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+                <div class="carousel-inner">
+                  
+                  <!-- Slide 1 -->
+                  <div class="carousel-item active">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="review-card">
+                          <div class="stars">
+                            <img src="https://images-static.trustpilot.com/supportcenter/Trustpilot_ratings_5star-RGB.png" alt="5 stars">
+                          </div>
+                          <div class="review-title">Seamless Travel Experience with Tripokit!!</div>
+                          <div class="review-text">I am using Tripokit service quite a long time and I am thoroughly impressed with their service. From the very beginning, the team was professional, attentive, and highly responsive to all my queries. They took the time to understand my preferences and designed an itinerary that was both well-organised and flexible.</div>
+                          <div class="reviewer-name">Vivek Khambra</div>
+                          <div class="review-date"></div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="review-card">
+                          <div class="stars">
+                            <img src="https://images-static.trustpilot.com/supportcenter/Trustpilot_ratings_5star-RGB.png" alt="5 stars">
+                          </div>
+                          <div class="review-title">Review from a happy customer</div>
+                          <div class="review-text">I contacted Nikhil for my flight tickets for December. As December is one of the most expensive time to travel but he is amazing at his job and he got me 2 tickets at a very competitive price. I appreciate the service he provided- quick response- easy to talk to- understand the requirements- genuine and competitive price.
+
+</div>
+                          <div class="reviewer-name">Abhimanyu Dhingra</div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Slide 2 -->
+                  <div class="carousel-item">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="review-card">
+                          <div class="stars">
+                            <img src="https://images-static.trustpilot.com/supportcenter/Trustpilot_ratings_5star-RGB.png" alt="5 stars">
+                          </div>
+                          <div class="review-title">Nikhil is absolutely amazing</div>
+                          <div class="review-text">Nikhil is absolutely amazing! You can contact him anytime, and he will always answer your call. Even if you need a ticket at the very last moment, he manages to arrange it without any hassle. His prices are very reasonable, and he always provides great offers. If any cancellation happens, he takes care of everything immediately. For us, he is always the best, and I highly recommend everyone to go with him and enjoy a smooth and worry-free journey.</div>
+                          <div class="reviewer-name">Anu Rajput</div>
+                          
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="review-card">
+                          <div class="stars">
+                            <img src="https://images-static.trustpilot.com/supportcenter/Trustpilot_ratings_5star-RGB.png" alt="5 stars">
+                          </div>
+                          <div class="review-title">Exceptional service</div>
+                          <div class="review-text">Exceptional service! Our travel agent made the entire booking process seamless, from personalized recommendations to handling all the details. They provided excellent support throughout the trip, ensuring everything went smoothly. Highly recommend for anyone looking for stress-free travel planning and unforgettable experiences. Will definitely use again</div>
+                          <div class="reviewer-name">Anmol Garg</div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
-                <div class="title">
-                  <h4><a href="#">Dina James</a></h4>
-                  <span>Traveller</span>
-                </div>
-              </div>
-            </div>
-            <div class="test-item">
-              <div class="quote">
-                <i class="fas fa-quote-left"></i>
-              </div>
-              <p>
-                We booked our travel to dubai via tripokit. They had managed our flights, hotels and travel. It was my mother's birthday and they made it memorable by organising a small party.
-              </p>
-              <div class="content">
-                <div class="icon">
-                  <img src="assets/images/testimonial/3.jpeg" alt="test">
-                </div>
-                <div class="title">
-                  <h4><a href="#">Shwan Pull</a></h4>
-                  <span>Traveller</span>
-                </div>
+
+                <!-- Carousel Controls -->
+                <a class="carousel-control-prev" href="#reviewCarousel" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#reviewCarousel" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
               </div>
             </div>
           </div>
@@ -548,7 +770,7 @@
               <h4>Subscribe</h4>
             </div>
             <div class="footer-text">
-              <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+              <p>Don't miss to subscribe to our new feeds, kindly fill the form below.</p>
             </div>
             <div class="subscribe-form">
               <form action="#">
@@ -600,17 +822,14 @@
     const PHONES = {
       "Australia":     { display: "02 9671 9382", tel: "+61296719382" },
       "United States": { display: "716 204 6477", tel: "+17162046477" },
-      "India":         { display: "80659 12772",  tel: "+918065912772" },
+      "India":         { display: "90174 59100",  tel: "+919017459100" },
       "Canada":        { display: "604 774 4493", tel: "+16047744493" },
       "New Zealand":   { display: "9 884 8944",   tel: "+6498848944" }
     };
 
     function applyToDom(entry, countryLabel) {
-      // Support any legacy buttons if they still exist
       document.querySelectorAll('.call-btn').forEach(b => b.href = 'tel:' + entry.tel);
       document.querySelectorAll('.call-label').forEach(l => l.textContent = entry.display);
-
-      // New call badge
       document.querySelectorAll('.cb-number').forEach(a => {
         a.href = 'tel:' + entry.tel;
         a.textContent = entry.display;
@@ -618,14 +837,11 @@
       });
     }
 
-    // Default (avoid flash)
     applyToDom(PHONES["United States"], "United States");
 
-    // Cached
     const cached = localStorage.getItem('tripokit_geo_country');
     if (cached && PHONES[cached]) applyToDom(PHONES[cached], cached);
 
-    // Live
     fetch("https://ipapi.co/json/")
       .then(r => r.json())
       .then(d => {
